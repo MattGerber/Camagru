@@ -1,5 +1,22 @@
-<html>
-    <head>
-        <title> Camagru </title>
-    </head>
-</html>
+<!DOCTYPE html>
+<HTML>
+  <header>
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <meta charset="UTF-8">
+    <title>CAMAGRU</title>
+  </header>
+  <body>
+    <?php include('header.php') ?>
+    <?php include('footer.php') ?>
+    <div id="login">
+      <div class="title">LOGIN</div>
+        <form method="post" style="position: relative;" action="login.php">
+          <label>Email: </label>
+          <input id="mail" name="email" placeholder="email" type="mail">
+          <label>Password: </label>
+          <input id="password" name="password" placeholder="password" type="password">
+          <input name="submit" type="submit" value=" SIGN IN ">
+        </form>
+    </div>
+  </body>
+</HTML
