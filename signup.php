@@ -17,7 +17,7 @@
           <input id="name" name="username" placeholder="username" type="text">
           <label>Password: </label>
           <input id="password" name="password" placeholder="password" type="password">
-          <input name="submit" type="submit" value=" SEND ">
+          <input name="submit" type="submit" value=" CREATE ">
         </form>
     </div>
   </body>
