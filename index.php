@@ -20,7 +20,7 @@
           <input id="password" name="password" placeholder="password" type="password">
           <input name="submit" type="submit" value=" SIGN IN ">
           <a href="signup.php">Create account</a>
-          <a href="forgot.php">Forget password ?</a>
+          <a href="forgot.php">Forgot password ?</a>
         </form>
     </div>
   </body>

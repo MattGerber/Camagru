@@ -92,3 +92,12 @@ body {
     height: 76px;
     background-color: black;
   }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #cfcfcf;
+  }
