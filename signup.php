@@ -1,3 +1,9 @@
+<?php
+  session_start();
+
+  include "functions/signup.php"
+?>
+
 <!DOCTYPE html>
 <HTML>
   <header>
