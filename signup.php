@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  include "functions/signup.php"
+  include "functions/signup.php";
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
     <?php include('footer.php') ?>
     <div id="login">
       <div class="title">SIGNUP</div>
-        <form method="post" style="position: relative;" action="signup.php">
+        <form method="POST" style="position: relative;" action="signup.php">
           <label>Email: </label>
           <input id="mail" name="email" placeholder="email" type="mail">
           <label>Username: </label>
