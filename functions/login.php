@@ -15,6 +15,7 @@
             $select->execute();
             
             $data = $select->fetch();
+
             
             if($data['email'] != $email and $data['passwd'] != $passwd)
             {
@@ -22,12 +23,10 @@
             }
             elseif($data['email'] == $email and $data['passwd'] == $passwd)
             {
-                $_SESSION['email'] = $data['eamil'];
+                $_SESSION['email'] = $data['email'];
+                $_SESSION['username'] = $data['username'];
                 $_SESSION['passwd'] = $data['passwd'];
-
-                echo $_SESSION['email'];
-
-                //header("location:../gallery.php");
+                header("location:../camagru/gallery.php");
             }
         }
     }
