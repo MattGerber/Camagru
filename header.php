@@ -4,6 +4,6 @@
           <i style="font-family:Brush Script MT, cursive; font-size:300%;">CAMAGRU</i>
         </div>
         <div class="button" onclick="location.href='index.php'">
-            logout ?
+            login
         </div>
       </div>

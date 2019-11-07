@@ -19,7 +19,7 @@
           <label>Email: </label>
           <input id="mail" name="email" placeholder="email" type="mail">
           <label>Password: </label>
-          <input id="password" name="password" placeholder="password" type="password">
+          <input id="password" name="passwd" placeholder="password" type="password">
           <input name="submit" type="submit" value=" SIGN IN ">
           <a href="signup.php">Create account</a>
           <a href="forgot.php">Forgot password ?</a>

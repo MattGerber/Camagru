@@ -22,7 +22,7 @@
           <label>Username: </label>
           <input id="name" name="username" placeholder="username" type="text">
           <label>Password: </label>
-          <input id="password" name="password" placeholder="password" type="password">
+          <input id="password" name="passwd" placeholder="password" type="password">
           <input name="submit" type="submit" value=" CREATE ">
         </form>
     </div>
