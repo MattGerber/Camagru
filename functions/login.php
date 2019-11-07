@@ -16,7 +16,6 @@
             
             $data = $select->fetch();
 
-            
             if($data['email'] != $email and $data['passwd'] != $passwd)
             {
                 echo "Invalid email or password";
