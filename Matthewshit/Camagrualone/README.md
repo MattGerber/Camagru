@@ -1,0 +1,8 @@
+# Camagru
+
+CREATE TABLE IF NOT EXISTS `Users`(
+    idUsers int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    uidUser TINYTEXT NOT NULL,
+    emailUsers TINYTEXT NOT NULL,
+    pwdUsers LONGTEXT 
+);
