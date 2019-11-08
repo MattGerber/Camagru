@@ -9,15 +9,21 @@ if (isset($_POST['signup-submit'])) {
     $pwd_repeat = $_POST['pwd-repeat'];
     
     if(empty($username) || empty($name) || empty($email) || empty($pwd) || empty($pwd_repeat)) {
-        header("location: ../signup.php?error=emptyfield&display-name=".$name."&uid=".$usermane."&mail=".$email);
+		$message = "Please fill all fields";
+		echo "<script type='text/javascript'>alert('$message');</script>";
+		header("location: ../signup.php?error=emptyfield&display-name=".$name."&uid=".$usermane."&mail=".$email);
         exit();
     }
     else if (!preg_match("/^[a-zA-Z0-9_]*$/", $username)){
-        header("location: ../signup.php?error=emptyfielf&display-name=".$name."&mail=".$email);
+		header("location: ../signup.php?error=emptyfielf&display-name=".$name."&mail=".$email);
+		$message = "Username should only contain letters, numbers and underscores";
+		echo "<script type='text/javascript'>alert('$message');</script>";
         exit();
     }
     else if ($pwd !== $pwd_repeat) {
-        header("location: ../signup.php?error=emptyfielf&display-name=".$name."&uid=".$usermane."&mail=".$email);
+		header("location: ../signup.php?error=emptyfielf&display-name=".$name."&uid=".$usermane."&mail=".$email);
+		$message = "passwords do not match";
+		echo "<script type='text/javascript'>alert('$message');</script>";
         exit();
     }
     else {

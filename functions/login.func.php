@@ -2,7 +2,7 @@
     include "../index.php";
     try
     {
-        $con = new PDO ("mysql:host=localhost;dbname=login", "root", "roooot");
+        $con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 
         if(isset($_POST['submit']))
         {

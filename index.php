@@ -15,7 +15,7 @@
     <?php include('footer.php') ?>
     <div id="login">
       <div class="title">LOGIN</div>
-        <form method="post" style="position: relative;">
+        <form method="post" style="position: relative;" action="login.func.php">
           <label>Email: </label>
           <input id="mail" name="email" placeholder="email" type="mail">
           <label>Password: </label>

@@ -19,7 +19,7 @@
         // Connect to DATABASE previously created
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "CREATE TABLE `user` (
+        $sql = "CREATE TABLE `users` (
             `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             `username` VARCHAR(25) NOT NULL,
             `password` VARCHAR(255) NOT NULL,
@@ -28,7 +28,7 @@
             `picturesource` VARCHAR(255)
             )";
         $dbh->exec($sql);
-        echo "Table user created successfully\n";
+        echo "Table users created successfully\n";
     } catch (PDOException $e) {
         echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
     }
@@ -43,7 +43,7 @@
             `userid` INT NOT NULL,
             `source` VARCHAR(255) NOT NULL,
             `creationdate` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-            FOREIGN KEY (userid) REFERENCES user(id)
+            FOREIGN KEY (userid) REFERENCES users(id)
             )";
         $dbh->exec($sql);
         echo "Table gallery created successfully\n";
@@ -60,7 +60,7 @@
             `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             `userid` INT(11) NOT NULL,
             `imageid` INT(11) NOT NULL,
-            FOREIGN KEY (userid) REFERENCES `user`(id),
+            FOREIGN KEY (userid) REFERENCES `users`(id),
             FOREIGN KEY (imageid) REFERENCES `image`(id)
             )";
         $dbh->exec($sql);
@@ -79,7 +79,7 @@
             `userid` INT NOT NULL,
             `imageid` INT NOT NULL,
             `text` VARCHAR(255) NOT NULL,
-            FOREIGN KEY (userid) REFERENCES user(id),
+            FOREIGN KEY (userid) REFERENCES users(id),
             FOREIGN KEY (imageid) REFERENCES image(id)
             )";
         $dbh->exec($sql);

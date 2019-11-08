@@ -16,14 +16,15 @@
     <?php include('footer.php') ?>
     <div id="login">
       <div class="title">SIGNUP</div>
-        <form method="POST" style="position: relative;" action="signup.php">
-          <label>Email: </label>
-          <input id="mail" name="email" placeholder="email" type="mail">
-          <label>Username: </label>
+        <form method="POST" style="position: relative;" action="functions/signup.func.php">
+          <!-- <label>Email: </label> -->
+          <input id="mail" name="email" placeholder="email" type="email">
+          <!-- <label>Username: </label> -->
           <input id="name" name="username" placeholder="username" type="text">
-          <label>Password: </label>
+          <!-- <label>Password: </label> -->
           <input id="password" name="passwd" placeholder="password" type="password">
-          <input name="submit" type="submit" value=" CREATE ">
+		  <input id="password-repeat" name="passwd-repeat" placeholder="repeat password" type="password">
+          <input name="signup-submit" type="submit" value=" CREATE ">
         </form>
     </div>
   </body>
