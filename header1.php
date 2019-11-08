@@ -72,9 +72,9 @@
         <a class="button is-danger is-outlined" href="signup.php" style="margin-right: 5px">
           <strong>Sign Up</strong>
         </a>
-        <form action="index.php" method="post">
-          <button class="button is-danger" type="submit" name="logout-submit" style="margin-right: 5px">
-            <strong>Logout</strong>
+        <form action="forgot.php" method="post">
+          <button class="button is-danger" type="submit" name="forgot-submit" style="margin-right: 5px">
+            <strong>forgot password?</strong>
           </a>
 			</form>
       </div>
