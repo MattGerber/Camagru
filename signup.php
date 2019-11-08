@@ -49,14 +49,14 @@
     					</span>
   					</p>
 				</div>
-				<!-- <div class="field"> -->
-  					<!-- <p class="control has-icons-left"> -->
-    					<!-- <input class="input" name="pwd-repeat" type="password" placeholder="Re-enter Password"> -->
-    					<!-- <span class="icon is-small is-left"> -->
-      						<!-- <i class="fas fa-lock"></i> -->
-    					<!-- </span> -->
-  					<!-- </p> -->
-				<!-- </div> -->
+				<div class="field">
+  					<p class="control has-icons-left">
+    					<input class="input" name="pwd-repeat" type="password" placeholder="Re-enter Password">
+    					<span class="icon is-small is-left">
+      						<i class="fas fa-lock"></i>
+    					</span>
+  					</p>
+				</div>
 
 				<div class="field">
 					<div class="control">
