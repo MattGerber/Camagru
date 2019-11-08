@@ -5,18 +5,11 @@
 	<div class="container has-text-centered ">
 		<div class="box is-7 is-large has-background-grey-lighter "style="margin-top: 250px;">
 			<div class="container is-large">
-			<form action="includes/signup.inc.php" method="post">
-				<div class="field">
-					<label class="label">Name</label>
-					<div class="control">
-						<input class="input" name="display-name" type="text" placeholder="Display Name">
-					</div>
-				</div>
-
+			<form action="functions/signup.func.php" method="post">
 				<div class="field">
 				<label class="label">Username</label>
 					<div class="control has-icons-left has-icons-right">
-						<input class="input is-success" name="uid" type="text" placeholder="Username">
+						<input class="input is-success" name="username" type="text" placeholder="Username">
 						<span class="icon is-small is-left">
 							<i class="fas fa-user"></i>
 						</span>
@@ -30,7 +23,7 @@
 				<div class="field">
 				<label class="label">Email</label>
 					<div class="control has-icons-left has-icons-right">
-						<input class="input is-danger" name="mail" type="email" placeholder="Email Address">
+						<input class="input is-danger" name="email" type="email" placeholder="Email Address">
 						<span class="icon is-small is-left">
 							<i class="fas fa-envelope"></i>
 						</span>
@@ -43,7 +36,7 @@
 				<div class="field">
 				<label class="label">Password</label>
   					<p class="control has-icons-left">
-    					<input class="input" name="pwd" type="password" placeholder="Password">
+    					<input class="input" name="passwd" type="password" placeholder="Password">
     					<span class="icon is-small is-left">
       						<i class="fas fa-lock"></i>
     					</span>
@@ -51,7 +44,7 @@
 				</div>
 				<div class="field">
   					<p class="control has-icons-left">
-    					<input class="input" name="pwd-repeat" type="password" placeholder="Re-enter Password">
+    					<input class="input" name="passwd-repeat" type="password" placeholder="Re-enter Password">
     					<span class="icon is-small is-left">
       						<i class="fas fa-lock"></i>
     					</span>
