@@ -1,31 +1,31 @@
 <?php
-    include "../index.php";
+    session_start();
     try
     {
         $con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
-
-        if(isset($_POST['submit']))
+        
+        if(isset($_POST['login-submit']))
         {
-            $email = $_POST['email'];
-            $passwd = $_POST['passwd'];
+            $email = $_POST['mailuid'];
+            $passwd = $_POST['pwd'];
 
-            $select = $con->prepare("SELECT * FROM users WHERE email ='$email' and passwd='$passwd'"); 
+            $select = $con->prepare("SELECT * FROM users WHERE email ='$email' and `password`='$passwd'"); 
 
             $select->setFetchMode(PDO::FETCH_ASSOC);
             $select->execute();
             
             $data = $select->fetch();
-
-            if($data['email'] != $email and $data['passwd'] != $passwd)
+            
+            if($data['email'] != $email and $data['password'] != $passwd)
             {
                 echo "Invalid email or password";
             }
-            elseif($data['email'] == $email and $data['passwd'] == $passwd)
+            elseif($data['email'] == $email and $data['password'] == $passwd)
             {
                 $_SESSION['email'] = $data['email'];
                 $_SESSION['username'] = $data['username'];
-                $_SESSION['passwd'] = $data['passwd'];
-                header("location:../camagru/gallery.php");
+                $_SESSION['passwd'] = $data['password'];
+                header("location:../gallery.php");
             }
         }
     }

@@ -1,5 +1,5 @@
 <?php
-	include_once 'dbh.inc.php';
+	// include_once 'dbh.inc.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,7 +60,7 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-      <form action="gallery.php" method="post">
+      <form action="functions/login.func.php" method="post">
         <div class="level">
 				  <input class="input" type="email" name="mailuid" placeholder="Email" style="margin-right: 5px">
 				  <input class="input" type="password" name="pwd" placeholder="Password" style="margin-right: 5px">
