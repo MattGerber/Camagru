@@ -6,13 +6,13 @@
   </header>
   <main class="hero is-fullheight has-background-dark">
     <div class="container has-text-centered">
-      <div class="box is-7 is-large has-background-grey-lighter" style="margin-top: 300px;">
+      <div class="box is-7 is-large has-background-grey-lighter is-centered" style="margin-top: 350px;">
         <div class="container is-large">
         <form method="POST" action="forgot.php">
-          <div class="field">
+		<div class="field">
           <label class="label">FORGOT PASSWORD</label>
             <div class="control has-icons-left has-icons-right">
-              <input name="email" type="email" placeholder="Email Adress">
+              <input class="input" name="email" type="email" placeholder="Email Address">
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
