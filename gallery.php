@@ -1,5 +1,11 @@
 <?php
     session_start();
 
-    echo "Welcome, ".$_SESSION['username'];
+    include "header2.php";
 ?>
+
+<main class="hero is-fullheight has-background-dark">
+    <div style="color: white">
+        Welcome!!
+    </div>
+</main>
