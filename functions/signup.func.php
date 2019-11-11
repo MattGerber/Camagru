@@ -33,13 +33,13 @@
         	{
         	    // echo "nanannananana";
         	    // print_r($_POST);
-
+				// Why you under the table, Matthew? 
+				// What?
         	    $insert = $con->prepare("INSERT INTO users (email,username,`password`) values(:email,:username,:passwd)");
               
         		$insert->bindParam(':email',$email);
         		$insert->bindParam(':username',$username);
         	    $insert->bindParam(':passwd',$passwd);
-
 
             	$insert->execute();
         	}
@@ -49,5 +49,5 @@
 			}
 			header("location: ../index.php");
 		}
-    }
+	}
 ?> 
