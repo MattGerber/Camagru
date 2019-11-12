@@ -24,11 +24,6 @@
         </div>
       <div>
       </form>
-        <!-- <form method="post" style="position: relative;" action="forgot.php"> -->
-          <!-- <label>Email: </label> -->
-          <!-- <input id="mail" name="email" placeholder="email" type="mail"> -->
-          <!-- <input name="submit" type="submit" value=" SEND "> -->
-        <!-- </form> -->
     </div>
   </main>
 </HTML>
