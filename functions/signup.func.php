@@ -1,5 +1,5 @@
 <?php
-    // include "../signup.php";
+    include "sendmail.func.php";
     if (isset($_POST['signup-submit'])){
 
 		$username = $_POST['username'];
@@ -21,32 +21,36 @@
 			exit();
 		}
 		else if ($passwd !== $pwd_repeat) {
-			header("location: ../signup.php?error=password&display-name=".$name."&uid=".$usermane."&mail=".$email);
+			header("location: ../signup.php?error=password&display-name=".$name."&uid=".$username."&mail=".$email);
 			exit();
 		}
 		else if($d > 0){
-			header("location: ../signup.php?error=userexists&display-name=".$name."&uid=".$usermane."&mail=".$email);
+			header("location: ../signup.php?error=userexists&display-name=".$name."&uid=".$username."&mail=".$email);
 			exit();
 		}
 		else{
+			$token = hash('whirlpool',$username);
         	try
         	{
         	    // echo "nanannananana";
         	    // print_r($_POST);
 				// Why you under the table, Matthew? 
 				// What?
-        	    $insert = $con->prepare("INSERT INTO users (email,username,`password`) values(:email,:username,:passwd)");
+        	    $insert = $con->prepare("INSERT INTO users (email,username,`password`,token) values(:email,:username,:passwd,:token)");
               
         		$insert->bindParam(':email',$email);
         		$insert->bindParam(':username',$username);
-        	    $insert->bindParam(':passwd',$passwd);
-
+				$insert->bindParam(':passwd',hash('whirlpool',(hash('whirlpool',$passwd))));
+				$insert->bindParam(':token',$token);
+				
             	$insert->execute();
         	}
         	catch(PDOException $e)
         	{
-            	echo "Error".$e->getMessage();
+				echo "Error".$e->getMessage();
 			}
+			sendmail($email, $token);
+			// mail($email,"verify","dfas","das");
 			header("location: ../index.php");
 		}
 	}

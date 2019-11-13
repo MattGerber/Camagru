@@ -60,10 +60,10 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-      <form action="gallery.php" method="post">
+      <form method="post" action="functions/login.func.php">
         <div class="level">
-				  <input class="input" type="email" name="mailuid" placeholder="Email" style="margin-right: 5px">
-				  <input class="input" type="password" name="pwd" placeholder="Password" style="margin-right: 5px">
+				  <input class="input" type="email" name="email" placeholder="Email" style="margin-right: 5px">
+				  <input class="input" type="password" name="passwd" placeholder="Password" style="margin-right: 5px">
           <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px">
             <strong>Login</strong>
           </a>

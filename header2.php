@@ -60,7 +60,7 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-      <form action="index.php" method="post">
+      <form action="login.func.php" method="post" action="functions/login.func.php">
         <div class="level">
 				  <!-- <input class="input" type="email" name="mailuid" placeholder="Email" style="margin-right: 5px"> -->
 				  <!-- <input class="input" type="password" name="pwd" placeholder="Password" style="margin-right: 5px"> -->

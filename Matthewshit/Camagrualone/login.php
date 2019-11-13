@@ -8,7 +8,7 @@
 			<form action="includes/login.inc.php" method="post">
 				<div class="field">
 					<p class="control has-icons-left has-icons-right">
-						<input class="input" type="email" name="mailuid" placeholder="Email">
+						<input class="input" type="email" name="email" placeholder="Email">
 						<span class="icon is-small is-left">
 							<i class="fas fa-envelope"></i>
 						</span>
@@ -19,7 +19,7 @@
 				</div>
 				<div class="field">
 					<p class="control has-icons-left">
-						<input class="input" type="password" name="pwd" placeholder="Password">
+						<input class="input" type="password" name="passwd" placeholder="Password">
 						<span class="icon is-small is-left">
 							<i class="fas fa-lock"></i>
 						</span>
@@ -31,8 +31,8 @@
 					</p>
 				</div>
 			</form>
-			<form action="includes/logout.inc.php" method="post">
-				<button class="button is-danger" name="logou-submit" type="submit">Logout</button>
+			<form action="functions/logout.inc.php" method="post">
+				<button class="button is-danger" name="logout-submit" type="submit">Logout</button>
 			</form>
 		</div>
 		</div>
