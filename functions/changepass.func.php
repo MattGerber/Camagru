@@ -12,6 +12,11 @@
 				header("location: ../changepass.php?error=password");
 				exit();
 			}
+			else if (!preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $passwd) || strlen($passwd) < 8)
+			{
+				header("location: ../signup.php?error=passwordnotsecure&display-name=".$name."&uid=".$username."&mail=".$email);
+				exit();
+			}
 			else{
 				$update = $con->prepare("UPDATE `users` SET `password` = :passwd WHERE `users`.`token` =:token ");
 				$update->bindParam(':passwd',hash('whirlpool', hash('whirlpool', $passwd)));
