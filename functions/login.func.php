@@ -1,5 +1,6 @@
 <?php
-    // include "../index.php";
+	// include "../index.php";
+	session_start();
 	if(isset($_POST['login-submit']))
 	{
 	    try
@@ -27,7 +28,7 @@
 			else if ($data['email'] == $email && $data['password'] == $passwd){
 				$_SESSION['email'] = $data['email'];
 				$_SESSION['username'] = $data['username'];
-				$_SESSION['passwd'] = $data['passwd'];
+				$_SESSION['passwd'] = $data['password'];
 				header("location:../gallery.php");
 			}
 			else {

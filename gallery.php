@@ -6,6 +6,6 @@
 
 <main class="hero is-fullheight has-background-dark">
     <div style="color: white">
-        Welcome!!
+        Welcome <?php echo $_SESSION["username"];?> !!
     </div>
 </main>
