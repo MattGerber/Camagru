@@ -17,10 +17,10 @@
 			$data = $select->fetch();
 
 			print_r($_FILES);
-			$insert = $con->prepare("INSERT INTO `image`(userid, source) VALUES (:userid,:source)");
+			$insert = $con->prepare("INSERT INTO `image`(userid, source, `type`) VALUES (:userid,:source,:imagetype)");
 			$insert->bindParam(":userid", $data['id']);
 			$insert->bindParam(":source", $source);
-			// $insert->bindParam(":creationdate", date("YYYY/mm/dd"));	
+			$insert->bindParam(":imagetype", $type);	
 			$insert->execute();
 			header("location: ../postImage.php?image=success");
 		}

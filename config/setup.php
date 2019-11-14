@@ -43,6 +43,7 @@
             `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             `userid` INT NOT NULL,
             `source` LONGBLOB NOT NULL,
+			`type` VARCHAR(255) NOT NULL,
             `creationdate` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
             FOREIGN KEY (userid) REFERENCES users(id)
             )";
