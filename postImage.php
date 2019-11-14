@@ -1,5 +1,5 @@
 <?php
-    require "header2.php"
+    require "header2.php";
 ?>
 
 <main class="hero is-fullheight has-background-dark">
@@ -31,7 +31,8 @@
             </tr>
         </tbody>
     </table>
-    <button type="submit" name="post" class="button is-danger">Post</button>
+    <!-- <button type="submit" name="post" class="button is-danger">Post</button> -->
+		<button type="submit" name="post-submit" value ="SEND" class="button is-danger">Post</button>
     </form>
 </div>
 </div>
