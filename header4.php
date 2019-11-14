@@ -1,6 +1,5 @@
 <?php
 	include_once 'dbh.inc.php';
-	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -61,21 +60,21 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-      <form action="login.func.php" method="post" action="functions/login.func.php">
+      <form action="gallery.php" method="post">
         <div class="level">
-				  <!-- <input class="input" type="email" name="mailuid" placeholder="Email" style="margin-right: 5px"> -->
-				  <!-- <input class="input" type="password" name="pwd" placeholder="Password" style="margin-right: 5px"> -->
-          <!-- <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px"> -->
-            <!-- <strong>Login</strong> -->
+				  <input class="input" type="email" name="mailuid" placeholder="Email" style="margin-right: 5px">
+				  <input class="input" type="password" name="pwd" placeholder="Password" style="margin-right: 5px">
+          <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px">
+            <strong>Login</strong>
           </a>
         </div>
 			</form>
         <!-- <a class="button is-danger is-outlined" href="signup.php" style="margin-right: 5px"> -->
           <!-- <strong>Sign Up</strong> -->
         <!-- </a> -->
-        <form action="index.php" method="post">
-          <button class="button is-danger" type="submit" name="logout-submit" style="margin-right: 5px">
-            <strong>Logout</strong>
+        <!-- <form action="forgot.php" method="post"> -->
+          <!-- <button class="button is-danger" type="submit" name="forgot-submit" style="margin-right: 5px"> -->
+            <!-- <strong>forgot password?</strong> -->
           </a>
 			</form>
       </div>
