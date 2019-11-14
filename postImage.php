@@ -27,7 +27,7 @@
     </div>
         <tbody>
             <tr>
-                <td><input class="input" name="photo" type="file"></td>
+                <td><input class="input" name="image" type="file"></td>
             </tr>
         </tbody>
     </table>

@@ -42,7 +42,7 @@
         $sql = "CREATE TABLE `image` (
             `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             `userid` INT NOT NULL,
-            `source` VARCHAR(255) NOT NULL,
+            `source` LONGBLOB NOT NULL,
             `creationdate` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
             FOREIGN KEY (userid) REFERENCES users(id)
             )";
