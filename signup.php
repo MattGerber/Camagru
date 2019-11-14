@@ -1,5 +1,5 @@
 <?php
-    require "header2.php"
+    require "header4.php"
 ?>
 <main class="hero is-fullheight has-background-dark">
 	<div class="container has-text-centered ">
@@ -65,7 +65,7 @@
 						<button type="submit" name="signup-submit" class="button is-danger">Submit</button>
 					</div>
 				<div class="control">
-						<button class="button is-danger is-light">Cancel</button>
+						<button name="signup-cancel" class="button is-danger is-light">Cancel</button>
 				</div>
 			</div>
 			</form>

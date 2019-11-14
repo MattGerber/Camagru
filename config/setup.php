@@ -14,7 +14,7 @@
         exit(-1);
     }
 
-    // CREATE TABLE USER
+    // CREATE TABLE USERS
     try {
         // Connect to DATABASE previously created
         $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -24,8 +24,9 @@
             `username` VARCHAR(25) NOT NULL,
             `password` VARCHAR(255) NOT NULL,
             `email` VARCHAR(100) NOT NULL,
-            `verified` BIT(1) NOT NULL DEFAULT 0,
-            `picturesource` VARCHAR(255)
+            `verified` INT NOT NULL DEFAULT 0,
+            `picturesource` VARCHAR(255),
+			`token` VARCHAR(255)
             )";
         $dbh->exec($sql);
         echo "Table users created successfully\n";
