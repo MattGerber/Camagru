@@ -33,6 +33,9 @@
     </table>
     <button type="submit" name="post" class="button is-danger">Post</button>
     </form>
+<form action="camera.php" method="post" enctype="multipart/form-data">
+    <button type="submit" name="post" class="button is-danger">tempCamera</button>
+</form>
 </div>
 </div>
 </div>
