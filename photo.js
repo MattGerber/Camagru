@@ -1,6 +1,7 @@
 (function(){
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
+    var context= canvas.getContext('2d');
         // vendorUrl = window.URL || window.webkitURL;
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia || navigator.oGetUserMedia || navigator.msGetUserMedia;
@@ -27,4 +28,8 @@
     function throwError(e){
         alert(e.name);
     }
+    
+    document.getElementById('canvas').addEventListener('click', function(){
+        context.drawImage(video, 0, 0, 400, 500); 
+    });
 })();

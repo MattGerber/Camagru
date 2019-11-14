@@ -7,7 +7,10 @@
       
 
                 <video id="video" style="height:400px; width:500px;"></video>
-            
+				<form action="camera.php" method="post" enctype="multipart/form-data">
+            	<button type="submit" name="take" class="button is-danger" id="capture">Take Photo</button>
+				</form>
+                <canvas id="canvas" style="height400px; width:500px;"></canvas>
         </div>
     </div>
     <script src="photo.js"></script>
