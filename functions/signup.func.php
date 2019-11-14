@@ -9,8 +9,8 @@
 
 		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 		
-		$doesexist = $con->prepare("SELECT * FROM `users` WHERE username = ?");
-		$doesexist->execute([$username]);
+		$doesexist = $con->prepare("SELECT * FROM `users` WHERE username = ? OR email = ?");
+		$doesexist->execute([$username, $email]);
 		$d = $doesexist->rowCount();
 		if(empty($username) || empty($email) || empty($passwd) || empty($pwd_repeat)) {
 			// print_r($_POST);
