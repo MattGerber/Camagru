@@ -2,8 +2,7 @@
     session_start();
 
 	include "header2.php";
-	include "functions/images.func.php";
-	include "functions/displaycomments.func.php";
+	include "functions/display.func.php";
 ?>
 
 <main class="hero is-fullheight has-background-dark">
@@ -20,6 +19,7 @@
 				$_SESSION['imageid'] = $_GET['id'];   
 			   ?>
         </div>
+		<a href="functions/like.func.php" class="button">likes: <?php display_likes($_GET['id']);?></a>
 		<div class="container is-large">
 			   <?php 
 			   display_comments($_GET['id']);   

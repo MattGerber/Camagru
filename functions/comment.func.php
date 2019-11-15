@@ -4,7 +4,7 @@ session_start();
     if (isset($_POST['comment-submit'])){
 
 		print_r($_SESSION);
-		$comment = $_POST['comment'];
+		$comment = htmlspecialchars($_POST['comment']);
 		$user = $_SESSION['username'];
 		$userid = $_SESSION['id'];
 		$imageid = $_SESSION['imageid'];

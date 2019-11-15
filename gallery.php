@@ -2,7 +2,7 @@
     session_start();
 
 	include "header2.php";
-	include "functions/images.func.php";
+	include "functions/display.func.php";
 ?>
 
 <main class="hero is-fullheight has-background-dark">
