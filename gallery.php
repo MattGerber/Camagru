@@ -5,8 +5,7 @@
 ?>
 
 <main class="hero is-fullheight has-background-dark">
-    <div style="color: white">
-        Welcome <?php echo $_SESSION["username"];?> !!
+    <div style="color: white">-
     <a class="button is-danger" href="postImage.php" style="margin-right: 1100px; margin-top: 5px; margin-left: 5px">
         <strong>Add a Photo</strong>
     </a>

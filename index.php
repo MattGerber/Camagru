@@ -6,7 +6,6 @@
   <div class="container has-text-centered">
       <div class="box is-7 is-large has-background-dark" style="margin-top: 5px;">
         <div class="container is-large">
-		<?php print_r($_SESSION);?>
         <div class="card">
             <div class="card-image">
                 <figure class="image is-100x100">
