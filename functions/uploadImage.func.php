@@ -16,7 +16,6 @@
 			$select->execute();
 			$data = $select->fetch();
 
-			print_r($_FILES);
 			$insert = $con->prepare("INSERT INTO `image`(userid, source, `type`) VALUES (:userid,:source,:imagetype)");
 			$insert->bindParam(":userid", $data['id']);
 			$insert->bindParam(":source", $source);
