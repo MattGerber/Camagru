@@ -73,9 +73,11 @@
         <!-- <a class="button is-danger is-outlined" href="signup.php" style="margin-right: 5px"> -->
           <!-- <strong>Sign Up</strong> -->
         <!-- </a> -->
-		<a href="profile.php" class="navbar-item"><figure class="image "  style="margin-right: 10px">
- 		<img class="is-rounded" src="styles/default.jpg" alt="">
+		<a href="profile.php" class="navbar-item"><figure class="image "  style="margin-right: 15px">
+ 		<img class="is-rounded" src="styles/default.jpg" style="height:30px; width:30px;">
 		</figure><strong><?php echo $_SESSION['username'];?></strong></a>
+    <a href="postImage.php" class="navbar-item"><figure class="image" style="margin-right: 10px;">
+    <img class="is-rounded" src="styles/addImage.png" style="height:30px; width:30px"></figure></a>
         <form action="functions/logout.func.php" method="post">
           <button class="button is-danger" type="submit" name="logout-submit" style="margin-right: 5px">
             <strong>Logout</strong>
