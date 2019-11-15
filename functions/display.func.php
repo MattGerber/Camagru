@@ -44,13 +44,11 @@ function display_comments($id) {
 			$data = $get_comments->fetchAll(PDO::FETCH_ASSOC);
 			if ($data) {
 				foreach ($data as $comment) {
-				   echo "<div class = 'box column is-7 is-offset-one-quarter'>
-					<br />
-					   <h1 class='subtitle  has-text-centered'>
+				   echo "
+					   <h1 class='subtitle  has-text-centered' style ='border-bottom: 2px solid grey' >
 						   <p>".$comment['text']."</p></a>
 					   </h1>
-					<br />
-					</div>";
+					";
 				}
 			}
 		} catch (PDOException $exception) {
