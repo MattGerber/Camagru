@@ -1,6 +1,6 @@
 <?php
   require "header2.php";
-  include "functions/images.func.php";
+  include "functions/display.func.php";
 
  // display_all_photos($_SESSION['id']);
   session_start();
@@ -33,7 +33,7 @@
 <div class="container has-text-centered">
       <div class="box is-7 is-large has-background-dark" style="margin-top: 5px;">
         <div class="container is-large">
-          <?php display_all_photos($_SESSION['id']); ?>
+          <?php display_all_photos($_SESSION['id'],null); ?>
         </div>
 	  </div>
 </div>
