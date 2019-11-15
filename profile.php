@@ -9,7 +9,7 @@ include "functions/images.func.php";
   <body>
     <?php include('header2.php')?>
 	<?php 
-	display_all_photos($_SESSION['id']) 
+	display_all_photos($_SESSION['id'],null) 
 	?>
     <div id="login">
     </div>
