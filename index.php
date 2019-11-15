@@ -1,5 +1,6 @@
 <?php
-    require "header1.php"
+	require "header1.php";
+	session_start();
 ?>
 <main class="hero is-fullheight has-background-dark">
   <div class="container has-text-centered">
