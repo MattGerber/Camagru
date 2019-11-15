@@ -41,7 +41,6 @@
         	    // echo "nanannananana";
         	    // print_r($_POST);
 				// Why you under the table, Matthew? 
-				// What?
         	    $insert = $con->prepare("INSERT INTO users (email,username,`password`,token) values(:email,:username,:passwd,:token)");
               
         		$insert->bindParam(':email',$email);
