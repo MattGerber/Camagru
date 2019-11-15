@@ -6,10 +6,11 @@
 		$email = $_POST['email'];
 		$passwd = $_POST['passwd'];
 		$pwd_repeat = $_POST['passwd-repeat'];
+
 		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 		
-		$doesexist = $con->prepare("SELECT * FROM `users` WHERE username = ?");
-		$doesexist->execute([$username]);
+		$doesexist = $con->prepare("SELECT * FROM `users` WHERE username = ? OR email = ?");
+		$doesexist->execute([$username, $email]);
 		$d = $doesexist->rowCount();
 		if(empty($username) || empty($email) || empty($passwd) || empty($pwd_repeat)) {
 			// print_r($_POST);
@@ -24,6 +25,11 @@
 			header("location: ../signup.php?error=password&display-name=".$name."&uid=".$username."&mail=".$email);
 			exit();
 		}
+		else if (!preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $passwd) || strlen($passwd) < 8)
+		{
+			header("location: ../signup.php?error=passwordnotsecure&display-name=".$name."&uid=".$username."&mail=".$email);
+			exit();
+		}
 		else if($d > 0){
 			header("location: ../signup.php?error=userexists&display-name=".$name."&uid=".$username."&mail=".$email);
 			exit();
@@ -35,7 +41,6 @@
         	    // echo "nanannananana";
         	    // print_r($_POST);
 				// Why you under the table, Matthew? 
-				// What?
         	    $insert = $con->prepare("INSERT INTO users (email,username,`password`,token) values(:email,:username,:passwd,:token)");
               
         		$insert->bindParam(':email',$email);
@@ -49,7 +54,16 @@
         	{
 				echo "Error".$e->getMessage();
 			}
-			sendmail($email, $token);
+			$body = '
+			<html>
+			<head>
+			  <title>Verify your account</title>
+			</head>
+			<body>
+			  <a href="http://localhost:8080/camagru/verify.php?verify='.$token.'">Click here to verify account</a>
+			</body>
+			</html>';
+			sendmail($email, $body, $token);
 			// mail($email,"verify","dfas","das");
 			header("location: ../index.php");
 		}

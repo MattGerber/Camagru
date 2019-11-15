@@ -11,7 +11,7 @@ $_SESSION['token'] = $_GET['verify'];
     <div id="login">
       <div class="title">Please Enter Username</div>
         <form method="post" style="position: relative;" action="functions/verify.func.php">
-          <label>Email: </label>
+          <label>Username: </label>
           <input id="mail" name="username" placeholder="username" type="mail">
           <input name="verify-submit" type="submit" value=" SEND ">
         </form>
