@@ -14,7 +14,7 @@
   </head>
   <nav class="navbar is-black" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="index.php">
+    <a class="navbar-item" href="gallery.php">
       <img src="styles/james-fajardo.png" width="112" height="28">
 
     </a>
@@ -28,7 +28,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="index.php">
+      <a class="navbar-item" href="gallery.php">
         Home
       </a>
 
@@ -73,7 +73,10 @@
         <!-- <a class="button is-danger is-outlined" href="signup.php" style="margin-right: 5px"> -->
           <!-- <strong>Sign Up</strong> -->
         <!-- </a> -->
-        <form action="index.php" method="post">
+		<a href="profile.php" class="navbar-item"><figure class="image "  style="margin-right: 10px">
+ 		<img class="is-rounded" src="styles/default.jpg" alt="">
+		</figure><strong><?php echo $_SESSION['username'];?></strong></a>
+        <form action="functions/logout.func.php" method="post">
           <button class="button is-danger" type="submit" name="logout-submit" style="margin-right: 5px">
             <strong>Logout</strong>
           </a>
