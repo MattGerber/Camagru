@@ -29,6 +29,7 @@
 				$_SESSION['id'] = $data['id'];
 				$_SESSION['email'] = $data['email'];
 				$_SESSION['username'] = $data['username'];
+				$_SESSION['pic'] = $data['picturesource'];
 				$_SESSION['passwd'] = $data['password'];
 				header("location:../gallery.php");
 			}

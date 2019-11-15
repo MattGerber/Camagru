@@ -25,7 +25,7 @@
             `password` VARCHAR(255) NOT NULL,
             `email` VARCHAR(100) NOT NULL,
             `verified` INT NOT NULL DEFAULT 0,
-            `picturesource` VARCHAR(255),
+            `picturesource` LONGBLOB,
 			`token` VARCHAR(255)
             )";
         $dbh->exec($sql);

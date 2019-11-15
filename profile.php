@@ -14,7 +14,7 @@
     <div class='column is-2'>
       <span class='header-icon user-profile-image'>
 	  <figure class= "image is-128x128">
-        <img class="is-rounded" src='styles/default.jpg'>
+        <img class="is-rounded" src=<?php echo "data:image/png;base64,".base64_encode($_SESSION['pic']) ?>>
 	  </figure>
       </span>
     </div>
