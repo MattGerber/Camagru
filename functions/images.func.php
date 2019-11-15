@@ -1,9 +1,16 @@
 <?php
-function display_all_photos() {
+function display_all_photos($id) {
 	$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 		try {
-			$all_photos = "SELECT * FROM `image` ORDER BY id DESC";
-			$get_all_photos = $con->prepare($all_photos);
+			if (isset($id)){
+				$all_photos = "SELECT * FROM `image` WHERE `userid` = :id ORDER BY id DESC";
+				$get_all_photos = $con->prepare($all_photos);
+				$get_all_photos->bindParam(':id', $id);
+			}
+			else{
+				$all_photos = "SELECT * FROM `image`ORDER BY id DESC";
+				$get_all_photos = $con->prepare($all_photos);
+			}
 			$get_all_photos->execute();
 			$data = $get_all_photos->fetchAll(PDO::FETCH_ASSOC);
 			if ($data) {

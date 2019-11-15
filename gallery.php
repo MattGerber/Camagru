@@ -13,7 +13,7 @@
     <div class="container has-text-centered">
       <div class="box is-7 is-large has-background-dark" style="margin-top: 5px;">
         <div class="container is-large">
-               <?php display_all_photos();?>
+               <?php display_all_photos(null);?>
         </div>
     </div>
     </div>
