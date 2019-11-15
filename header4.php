@@ -1,5 +1,8 @@
 <?php
 	include_once 'dbh.inc.php';
+	if (isset($_GET['error'])){
+		echo "<script>alert('".$_GET['error']."')</script>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,9 +63,9 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-      <form action="gallery.php" method="post">
+      <form action="functions/login.func.php" method="post">
         <div class="level">
-				  <input class="input" type="email" name="mailuid" placeholder="Email" style="margin-right: 5px">
+				  <input class="input" type="email" name="mailuid" placeholder="Email" style="margin-right: 5px" <?php if(isset($_GET['mail'])){echo "value=".$_GET['mail'];} ?>>
 				  <input class="input" type="password" name="pwd" placeholder="Password" style="margin-right: 5px">
           <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px">
             <strong>Login</strong>
