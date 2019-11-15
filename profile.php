@@ -23,7 +23,7 @@
           Edit Password
         </a>
         <a class='button is-danger is-outlined' href='changeDetails.php' style='margin: 5px'>
-          Edit Username/Email
+          Edit Profile
         </a>
     </div>
   </div>

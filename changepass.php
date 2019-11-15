@@ -1,22 +1,36 @@
 <?php
-session_start();
-$_SESSION['token'] = $_GET['verify'];
+  require "header2.php";
+  session_start();
+  $_SESSION['token'] = $_GET['verify'];
 ?>
-<HTML>
-  <header>
-    <title>Change Password</title>
-  </header>
-  <body>
-    <?php include('header2.php') ?>
+<main class="hero is-fullheight has-background-dark">
+  <div class="container has-text-centered">
+    <div class="box is-7 is-large has-background-grey-lighter" style="margin-top: 250px;">
+    <div class="container is-large">
     <div id="login">
-      <div class="title">Reset Password</div>
+      <div class="title ">Reset Password</div>
         <form method="post" style="position: relative;" action="functions/changepass.func.php">
-          <label>New Password: </label>
-          <input  name="newpass" placeholder="Password" type="password">
-		  <label>Confirm Password: </label>
-          <input  name="confirmpass" placeholder="Re-enter Password" type="password">
-          <input name="change-submit" type="submit" value=" SEND ">
+        <div class="field">
+				<label class="label">New Password</label>
+  					<p class="control has-icons-left">
+    					<input class="input" name="passwd" type="password" placeholder="New Password">
+    					<span class="icon is-small is-left">
+      						<i class="fas fa-lock"></i>
+    					</span>
+  					</p>
+				</div>
+        <div class="field">
+				<label class="label">Confirm Password</label>
+  					<p class="control has-icons-left">
+    					<input class="input" name="passwd" type="password" placeholder="Re-enter Password">
+    					<span class="icon is-small is-left">
+      						<i class="fas fa-lock"></i>
+    					</span>
+  					</p>
+				</div>
+          <button class="button is-danger" name="change-submit" type="submit">CHANGE</button>
         </form>
     </div>
-  </body>
-</HTML>
+    </div>
+    </div>
+</main>
