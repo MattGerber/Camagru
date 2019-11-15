@@ -13,9 +13,23 @@
 		else{
 			$check = 1;
 		}
+		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
+		$doesexist = $con->prepare("SELECT * FROM `users` WHERE (username = ? OR email = ?)");
+		$doesexist->execute($_SESSION['id'],$username, $email);
+		$d = $doesexist->rowCount();
+
+		$doesexist->setFetchMode(PDO::FETCH_ASSOC);
+		$doesexist->execute();
+		
+		$data = $doesexist->fetch();
+		echo($d);
+		if ($d != 1 || $data['id'] != $_SESSION['id']){
+			header("location:../changeDetails.php?error=userexists");
+			exit();
+		}
 		try
 	    {
-			$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
+		
 			$update = $con->prepare("UPDATE `users` SET `username` = :user, email = :mail, verified = :note WHERE `users`.`id` =:id ");
 			$update->bindParam(':user', $username);
 			$update->bindParam(':mail', $email);
