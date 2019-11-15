@@ -19,7 +19,6 @@ function display_all_photos($id, $uid) {
 			$get_all_photos->execute();
 			$data = $get_all_photos->fetchAll(PDO::FETCH_ASSOC);
 			if ($data) {
-				echo "adsfadsf";
 				foreach ($data as $image) {
 				   echo "<div class = 'box column is-7 is-offset-one-quarter'>
 					<br />

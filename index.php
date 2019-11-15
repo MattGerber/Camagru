@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-image">
                 <figure class="image is-100x100">
-                  <img src="https://unsplash.it/300/200/?random&pic=1" alt="" style="height:400px; width:600px;">
+                  <img src="https://unsplash.it/300/200/?random&pic=1" alt="" style="height:400; width:600px;">
                 </figure>
             </div>
             <footer class="card-footer">
