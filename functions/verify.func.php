@@ -10,17 +10,12 @@
 			
 			$select = $con->prepare("SELECT * FROM users WHERE username =:user");
 			$select->bindParam(':user',$username);
-			// $insert->bindParam(':passwd',$passwd);
 			
 			$select->setFetchMode(PDO::FETCH_ASSOC);
 			$select->execute();
 			
 			$data = $select->fetch();
-			// echo "nanananana";
-			// print_r($data);
-			// echo "<script type=>alert('nananananana');</script>";
 			$token = $data['token'];
-			// print_r($data);
 			if ($token == $_SESSION['token']){
 				$update = $con->prepare("UPDATE `users` SET `verified` = b'1' WHERE `users`.`username` =:username ");
 				$update->bindParam(':username',$data['username']);
