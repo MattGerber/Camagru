@@ -1,22 +1,16 @@
 (function(){
-    var video = document.getElementById('video');
-    var canvas = document.getElementById('canvas');
-    var context= canvas.getContext('2d');
-        // vendorUrl = window.URL || window.webkitURL;
+    var video = document.getElementById('video'),
+        canvas = document.getElementById('canvas'),
+        context= canvas.getContext('2d'),
+        vendorUrl = window.URL || window.webkitURL;
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia || navigator.oGetUserMedia || navigator.msGetUserMedia;
 
-                   
-    // navigator.getMedia({
-    //     video: true,
-    //     audio: false
-    // }, function(stream){
-    //     video.src = vendorUrl.createObjectURL(stream);
-    //     video.play();
-
-    // }, function(error){
-    //     //something
-    // });
+    document.getElementById('capture').addEventListener('click', function(){
+        canvas.width=400;
+        canvas.height=300;
+        context.drawImage(video, 0, 0, 640, 480, 0, 0, canvas.width, canvas.height);
+    });
 
     if (navigator.getUserMedia){
         navigator.getUserMedia({video:true}, streamWebCam, throwError);
@@ -29,7 +23,5 @@
         alert(e.name);
     }
     
-    document.getElementById('canvas').addEventListener('click', function(){
-        context.drawImage(video, 0, 0, 400, 500); 
-    });
+
 })();
