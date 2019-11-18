@@ -1,4 +1,5 @@
 <?php
+session_start();
 function display_all_photos($id, $uid) {
 	$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 		try {
@@ -20,13 +21,24 @@ function display_all_photos($id, $uid) {
 			$data = $get_all_photos->fetchAll(PDO::FETCH_ASSOC);
 			if ($data) {
 				foreach ($data as $image) {
-				   echo "<div class = 'box column is-7 is-offset-one-quarter'>
-					<br />
-					   <h1 class='subtitle is-3 has-text-centered'>
-						   <a href='interact.php?id=".$image['id']."'><img style='height:480; width:480;' src=data:image/png;base64,".base64_encode($image['source'])."></a>
-					   </h1>
-					<br />
-					</div>";
+					if (isset($_SESSION['username'])){
+				   		echo "<div class = 'box column is-7 is-offset-one-quarter'>
+						<br />
+					   		<h1 class='subtitle is-3 has-text-centered'>
+						   		<a href='interact.php?id=".$image['id']."'><img style='height:480; width:480;' src=data:image/png;base64,".base64_encode($image['source'])."></a>
+					   		</h1>
+						<br />
+						</div>";
+					}
+					else {
+						echo "<div class = 'box column is-7 is-offset-one-quarter'>
+						<br />
+					   		<h1 class='subtitle is-3 has-text-centered'>
+						   		<a href='#'><img style='height:480; width:480;' src=data:image/png;base64,".base64_encode($image['source'])."></a>
+					   		</h1>
+						<br />
+						</div>";
+					}
 				}
 			}
 		} catch (PDOException $exception) {
@@ -44,13 +56,11 @@ function display_comments($id) {
 			$data = $get_comments->fetchAll(PDO::FETCH_ASSOC);
 			if ($data) {
 				foreach ($data as $comment) {
-				   echo "<div class = 'box column is-7 is-offset-one-quarter'>
-					<br />
-					   <h1 class='subtitle  has-text-centered'>
+				   echo "
+					   <h1 class='subtitle  has-text-centered' style ='border-bottom: 2px solid grey' >
 						   <p>".$comment['text']."</p></a>
 					   </h1>
-					<br />
-					</div>";
+					";
 				}
 			}
 		} catch (PDOException $exception) {

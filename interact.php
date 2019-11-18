@@ -17,7 +17,7 @@
 			   ?>
         </div>
 		<a href="functions/like.func.php" class="button">likes: <?php display_likes($_GET['id']);?></a>
-		<div class="container is-large">
+		<div class="container has-background-light is-large">
 			   <?php 
 			   display_comments($_GET['id']);   
 			   ?>

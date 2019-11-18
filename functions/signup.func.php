@@ -6,6 +6,7 @@
 		$email = $_POST['email'];
 		$passwd = $_POST['passwd'];
 		$pwd_repeat = $_POST['passwd-repeat'];
+		$pic = file_get_contents("../styles/default.jpg");
 
 		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 		
@@ -41,11 +42,12 @@
         	    // echo "nanannananana";
         	    // print_r($_POST);
 				// Why you under the table, Matthew? 
-        	    $insert = $con->prepare("INSERT INTO users (email,username,`password`,token) values(:email,:username,:passwd,:token)");
+        	    $insert = $con->prepare("INSERT INTO users (email,username,`password`,picturesource,token) values(:email,:username,:passwd,:pic,:token)");
               
         		$insert->bindParam(':email',$email);
         		$insert->bindParam(':username',$username);
 				$insert->bindParam(':passwd',hash('whirlpool',(hash('whirlpool',$passwd))));
+				$insert->bindParam(':pic',$pic);
 				$insert->bindParam(':token',$token);
 				
             	$insert->execute();
