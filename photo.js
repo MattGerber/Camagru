@@ -49,6 +49,5 @@ function getimgsrc(){
     var img = new Image();
     img.src = canvas.toDataURL();
 	var button = document.getElementById('post');
-	alert(img.src);
     button.value=img.src;
 };
