@@ -49,16 +49,19 @@ function display_all_photos($id, $uid) {
 function display_comments($id) {
 	$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 		try {
-			$all_comments = "SELECT * FROM `comment` WHERE `imageid` = :id ORDER BY id DESC";
+			
+			$all_comments = "SELECT * FROM `comment` INNER JOIN `users` on `userid` = users.id WHERE imageid = :id";
 			$get_comments = $con->prepare($all_comments);
 			$get_comments->bindParam(':id', $id);
 			$get_comments->execute();
 			$data = $get_comments->fetchAll(PDO::FETCH_ASSOC);
+
 			if ($data) {
 				foreach ($data as $comment) {
+					 print_r($user);
 				   echo "
 					   <h1 class='subtitle  has-text-centered' style ='border-bottom: 2px solid grey' >
-						   <p>".$comment['text']."</p></a>
+							<p><img class= 'is-rounded'style='width: 20px; height: 20px;' src='data:image/png;base64,".base64_encode($comment['picturesource'])."'>".$comment['username']." : ".$comment['text']."</p>
 					   </h1>
 					";
 				}
