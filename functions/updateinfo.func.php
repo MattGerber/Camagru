@@ -14,15 +14,17 @@
 			$check = 1;
 		}
 		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
-		$doesexist = $con->prepare("SELECT * FROM `users` WHERE (username = ? OR email = ?)");
-		$doesexist->execute($_SESSION['id'],$username, $email);
+		$doesexist = $con->prepare("SELECT * FROM `users` WHERE username = :user OR email = :mail");
+		$doesexist->bindParam(':user',$username);
+		$doesexist->bindParam(':mail',$email);
+		$doesexist->execute();
 		$d = $doesexist->rowCount();
 
 		$doesexist->setFetchMode(PDO::FETCH_ASSOC);
-		$doesexist->execute();
 		
 		$data = $doesexist->fetch();
-		echo($d);
+		// echo($username);
+		// print_r($_SESSION);
 		if ($d != 1 || $data['id'] != $_SESSION['id']){
 			header("location:../changeDetails.php?error=userexists");
 			exit();
