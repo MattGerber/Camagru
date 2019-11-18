@@ -1,9 +1,9 @@
 <?php
 	include_once 'dbh.inc.php';
 	session_start();
-	if (isset($_GET['error'])){
-		echo "<script>alert('".$_GET['error']."')</script>";
-	}
+	// if (isset($_GET['error'])){
+	// 	echo "<script>alert('".$_GET['error']."')</script>";
+	// }
 	
 ?>
 <!DOCTYPE html>
