@@ -21,7 +21,6 @@
     <div class="box is-7 is-large has-background-grey-lighter" style="margin-top: 40px;">
     <div class="container is-large">
     <!-- <table class="table is-bordered"> -->
-<!-- <form action="functions/uploadImage.func.php" method="post" enctype="multipart/form-data"> -->
     <div class="column has-text-centered">
         <label class="label">Add Photo</label>
     </div>
@@ -31,8 +30,6 @@
             </tr>
         </tbody>
     <!-- </table> -->
-		<button type="submit" name="post-submit" value ="SEND" class="button is-danger" id="upload">Upload</button>
-    <!-- </form> -->
     <div class="container has-text-centered">
         <div class="box is-7 is-large has-background-grey-lighter" style="margin-top: 50px;">
       
@@ -40,6 +37,9 @@
                 <video id="video" style="height:480px; width:640px;"></video>
                 <br />
             	<button type="submit" name="take" class="button is-danger" id="capture">Take Photo</button>
+      <form action="functions/uploadImage.func.php" method="post" enctype="multipart/form-data">
+		          <button type="submit" name="post-submit" value ="SEND" class="button is-danger" onclick="getimgsrc()" id="post">Post</button>
+      </form>
                 <br />
                 <canvas id="canvas" style="height:480px; width:640px;"></canvas>
         </div>

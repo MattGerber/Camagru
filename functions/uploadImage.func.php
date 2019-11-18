@@ -1,11 +1,11 @@
 <!-- function to upload image to database -->
 <?php
-	// header("location: ../gallery.php");
+	header("location: ../gallery.php");
 	session_start();
 	if (isset($_POST['post-submit'])){
 		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
-		$filename = $_FILES['image']['name'];
 		// echo "dfsaf";
+		$filename = $_FILES['image']['name'];
 		$source = file_get_contents($_FILES['image']['tmp_name']);
 		$type = $_FILES['image']['type'];
 		$user = $_SESSION["username"];
