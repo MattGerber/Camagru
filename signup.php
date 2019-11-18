@@ -9,29 +9,29 @@
 				<div class="field">
 				<label class="label">Username</label>
 					<div class="control has-icons-left has-icons-right">
-						<input class="input is-success" name="username" type="text" placeholder="Username">
+						<input class="input" name="username" type="text" placeholder="Username">
 						<span class="icon is-small is-left">
 							<i class="fas fa-user"></i>
 						</span>
-						<span class="icon is-small is-right">
+						<!-- <span class="icon is-small is-right">
 							<i class="fas fa-check"></i>
-						</span>
+						</span> -->
 					</div>
-					<p class="help is-success">This username is available</p>
+					<!-- <p class="help is-success">This username is available</p> -->
 				</div>
 
 				<div class="field">
 				<label class="label">Email</label>
 					<div class="control has-icons-left has-icons-right">
-						<input class="input is-danger" name="email" type="email" placeholder="Email Address">
+						<input class="input" name="email" type="email" placeholder="Email Address">
 						<span class="icon is-small is-left">
 							<i class="fas fa-envelope"></i>
 						</span>
-						<span class="icon is-small is-right">
+						<!-- <span class="icon is-small is-right">
 							<i class="fas fa-exclamation-triangle"></i>
-						</span>
+						</span> -->
 					</div>
-					<p class="help is-danger">This email is invalid</p>
+					<!-- <p class="help is-danger">This email is invalid</p> -->
 				</div>
 				<div class="field">
 				<label class="label">Password</label>
@@ -71,3 +71,7 @@
 			</form>
 	</div>
 </main>
+
+<?php
+  require "footer.php";
+?>

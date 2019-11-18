@@ -20,23 +20,34 @@
   <div class="container has-text-centered">
     <div class="box is-7 is-large has-background-grey-lighter" style="margin-top: 40px;">
     <div class="container is-large">
-    <!-- <table class="table is-bordered"> -->
     <div class="column has-text-centered">
         <label class="label">Add Photo</label>
     </div>
-        <tbody>
-            <tr>
-              <td><input class="input" name="image" type="file" id="photo" style="width:fit-content;"></td>
-            </tr>
-        </tbody>
-    <!-- </table> -->
+    <br />
+            <div class="columns is-centered">
+            <div class="box" style="width:fit-content">
+            <div class="file is-danger">
+  <label class="file-label">
+    <input class="file-input" type="file" name="resume" id="photo">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+  </label>
+</div>
+</div>
+</div>
     <div class="container has-text-centered">
         <div class="box is-7 is-large has-background-grey-lighter" style="margin-top: 50px;">
       
 
                 <video id="video" style="height:480px; width:640px;"></video>
                 <br />
-            	<button type="submit" name="take" class="button is-danger" id="capture">Take Photo</button>
+            	<button type="submit" name="take" class="button is-danger" id="capture" style="margin-bottom: 5px;">Take Photo</button>
       <form action="functions/uploadImage.func.php" method="post" enctype="multipart/form-data">
 		          <button type="submit" name="post-submit" value ="SEND" class="button is-danger" onclick="getimgsrc()" id="post">Post</button>
       </form>
@@ -52,3 +63,7 @@
 </div>
 </div>
 </main>
+
+<?php
+  require "footer.php";
+?>
