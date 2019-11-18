@@ -1,8 +1,8 @@
 <?php
-function sendmail($email, $body, $token){
+session_start();
+function sendmailverify($email, $body, $token){
 
-	$message = "fdsaf";
-	$subject ="Verify Account";
+	$subject ="Camagru";
 	$from = "camagrunoreply@gmail.com";
 	// $body = '
 	// <html>
@@ -17,5 +17,14 @@ function sendmail($email, $body, $token){
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 	// echo $body;
 	mail($email,$subject,$body,$headers);
+}
+function sendmailforgot($from, $txt){
+
+	$to = "camagrunoreply@gmail.com";
+	$subject = "Reported Issue:";
+	$txt .= "\nReported by: ".$from;
+
+	mail($to,$subject,$txt);
+
 }
 ?>

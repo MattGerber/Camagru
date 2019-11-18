@@ -1,19 +1,18 @@
 <?php
-    include "sendmail.func.php";
+	include "sendmail.func.php";
+	
     if (isset($_POST['signup-submit'])){
-
 		$username = $_POST['username'];
 		$email = $_POST['email'];
 		$passwd = $_POST['passwd'];
 		$pwd_repeat = $_POST['passwd-repeat'];
 		$pic = file_get_contents("../styles/default.jpg");
-
 		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 		
 		$doesexist = $con->prepare("SELECT * FROM `users` WHERE username = ? OR email = ?");
 		$doesexist->execute([$username, $email]);
 		$d = $doesexist->rowCount();
-		if(empty($username) || empty($email) || empty($passwd) || empty($pwd_repeat)) {
+		if(empty($username) || empty($email) || empty($passwd) || empty($pwd_repeat) || !(isset($_POST['tos']))) {
 			// print_r($_POST);
 			header("location: ../signup.php?error=emptyfield&uid=".$username."&mail=".$email);
 			exit();
@@ -65,7 +64,7 @@
 			  <a href="http://localhost:8080/camagru/verify.php?verify='.$token.'">Click here to verify account</a>
 			</body>
 			</html>';
-			sendmail($email, $body, $token);
+			sendmailverify($email, $body, $token);
 			// mail($email,"verify","dfas","das");
 			header("location: ../index.php");
 		}

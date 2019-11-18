@@ -51,7 +51,7 @@
             Contact
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a href="report.php" class="navbar-item">
             Report an issue
           </a>
         </div>

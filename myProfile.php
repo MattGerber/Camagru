@@ -11,21 +11,22 @@
 
 <div class='section profile-heading'>
   <div class='columns is-mobile is-multiline'>
-    <div class='column is-2 has-text-white'>
-      <span class='header-icon user-profile-image '>
+    <div class='column is-2'>
+      <span class='header-icon user-profile-image'>
 	  <figure class= "image is-128x128">
         <img class="is-rounded" src=<?php echo "data:image/png;base64,".base64_encode($_SESSION['pic']) ?>>
 	  </figure>
       </span>
     </div>
-    <div class='column is-4-tablet is-10-mobile name '>
-		<strong class='has-text-white is-size-1'><?php echo $_GET['user'] ?></strong>
-        <!-- <a class='button is-danger is-outlined' href='changepass.php' style='margin: 5px'>
+    <div class='column is-4-tablet is-10-mobile name'>
+        <a class='button is-danger is-outlined' href='changepass.php' style='margin: 5px'>
           Edit Password
         </a>
         <a class='button is-danger is-outlined' href='changeDetails.php' style='margin: 5px'>
           Edit Profile
-        </a> -->
+        </a>
+		<br>
+		<strong class='has-text-white is-size-1'><?php echo $_SESSION['username'] ?></strong>
     </div>
   </div>
 </div>
@@ -34,8 +35,9 @@
 <div class="container has-text-centered">
       <div class="box is-7 is-large has-background-dark" style="margin-top: 5px;">
         <div class="container is-large">
-          <?php display_all_photos(getuserid($_GET['user']),null); ?>
+		  <?php display_all_photos($_SESSION['id'],null); ?>
         </div>
 	  </div>
 </div>
 </main>
+

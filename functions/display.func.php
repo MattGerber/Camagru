@@ -2,11 +2,14 @@
 session_start();
 function display_all_photos($id, $uid) {
 	$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
+	$add = "";
 		try {
 			if (isset($id)){
 				$all_photos = "SELECT * FROM `image` WHERE `userid` = :id ORDER BY id DESC";
 				$get_all_photos = $con->prepare($all_photos);
 				$get_all_photos->bindParam(':id', $id);
+				if ($_SESSION['id'] == $id)
+					$add = "<a class='button' name='delete-submit'>Delete</a>";
 			}
 			else if (isset($uid)){
 				$all_photos = "SELECT * FROM `image` WHERE `id` = :id ORDER BY id DESC";
@@ -26,7 +29,7 @@ function display_all_photos($id, $uid) {
 						<br />
 					   		<h1 class='subtitle is-3 has-text-centered'>
 						   		<a href='interact.php?id=".$image['id']."'><img style='height:480; width:640;' src=data:image/png;base64,".base64_encode($image['source'])."></a>
-					   		</h1>
+					   		</h1>".$add."
 						<br />
 						</div>";
 					}
@@ -61,7 +64,7 @@ function display_comments($id) {
 					 print_r($user);
 				   echo "
 					   <h1 class='subtitle  has-text-centered' style ='border-bottom: 2px solid grey' >
-							<p><img class= 'is-rounded'style='width: 20px; height: 20px;' src='data:image/png;base64,".base64_encode($comment['picturesource'])."'>".$comment['username']." : ".$comment['text']."</p>
+							<a href='profile.php?user=".$comment['username']."'><img class= 'is-rounded'style='width: 20px; height: 20px;' src='data:image/png;base64,".base64_encode($comment['picturesource'])."'>".$comment['username']." : ".$comment['text']."</p>
 					   </h1>
 					";
 				}
@@ -87,4 +90,16 @@ function display_comments($id) {
 				echo $all_comments."<br>".$exception;
 			}
 		}
+
+	function getuserid($username){
+		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
+		
+		$select = $con->prepare("SELECT * FROM `users` WHERE username = :user");
+		$select->bindParam(':user',$username);
+		$select->setFetchMode(PDO::FETCH_ASSOC);
+		$select->execute();
+		
+		$data = $select->fetch();
+		return($data['id']);
+	}	
 ?>
