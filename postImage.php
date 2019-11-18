@@ -6,15 +6,15 @@
 <main class="hero is-fullheight has-background-dark">
   
 <div class="box is-7 is-large has-background-dark" style="margin-top:50px;">
-<div class="columns is-fullheight" style="margin-top: px; margin-left:10px;">
-  <div class="column is-2 is-sidebar-menu is-hidden-mobile">
+<div class="columns is-fullheight" style="margin-top: 10px; margin-left:10px;">
+  <div class="column is-2 is-sidebar-menu is-hidden-mobile" style="width:fit-content;">
     <aside class="box has-background-grey-lighter">
   <p class="menu-label">
     Previous Images
   </p>
-  <ul class="menu-list">
+  <!-- <ul class="menu-list"> -->
     <?php display_all_photos($_SESSION['id'], null,"180px","90px");?>
-  </ul>
+  <!-- </ul> -->
 </aside>
   </div>
   <div class="column is-main-content">
