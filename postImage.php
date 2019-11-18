@@ -1,5 +1,6 @@
 <?php
-    require "header2.php";
+	require "header2.php";
+	include "functions/display.func.php";
 ?>
 
 <main class="hero is-fullheight has-background-dark">
@@ -12,7 +13,7 @@
     Previous Images
   </p>
   <ul class="menu-list">
-    <li><a>Thumbnails go here</a></li>
+    <?php display_all_photos($_SESSION['id'], null);?>
   </ul>
 </aside>
   </div>
@@ -49,7 +50,7 @@
                 <br />
             	<button type="submit" name="take" class="button is-danger" id="capture" style="margin-bottom: 5px;">Take Photo</button>
       <form action="functions/uploadImage.func.php" method="post" enctype="multipart/form-data">
-		          <button type="submit" name="post-submit" value ="SEND" class="button is-danger" onclick="getimgsrc()" id="post">Post</button>
+		          <button type="submit" name="post-submit" value ="" class="button is-danger" onclick="getimgsrc()" id="post">Post</button>
       </form>
                 <br />
                 <canvas id="canvas" style="height:480px; width:640px;"></canvas>
