@@ -1,5 +1,6 @@
 <?php
-    require "header2.php";
+	require "header2.php";
+	include "functions/display.func.php";
 ?>
 
 <main class="hero is-fullheight has-background-dark">
@@ -12,7 +13,7 @@
     Previous Images
   </p>
   <ul class="menu-list">
-    <li><a>Thumbnails go here</a></li>
+    <?php display_all_photos($_SESSION['id'], null);?>
   </ul>
 </aside>
   </div>
