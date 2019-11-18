@@ -11,7 +11,7 @@
       <div class="box is-7 is-large has-background-dark" style="margin-top: 5px;">
         <div class="container is-large">
 			   <?php 
-			   display_all_photos(null,$_GET['id']);
+			   display_all_photos(null,$_GET['id'],"640px","480px");
 				session_start();
 				$_SESSION['imageid'] = $_GET['id'];   
 			   ?>

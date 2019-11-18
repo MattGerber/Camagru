@@ -13,7 +13,7 @@
     Previous Images
   </p>
   <ul class="menu-list">
-    <?php display_all_photos($_SESSION['id'], null);?>
+    <?php display_all_photos($_SESSION['id'], null,"180px","90px");?>
   </ul>
 </aside>
   </div>

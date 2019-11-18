@@ -46,9 +46,9 @@
     };
     
 })();
-        function getimgsrc(){
-            var img = new Image();
-            img.src = canvas.toDataURL();
-            var button = document.getElementById('post');
-            button.value=img.src;
-        }
+    function getimgsrc(){
+        var img = new Image();
+        img.src = canvas.toDataURL();
+        var button = document.getElementById('post');
+        button.value=img.src;
+    }
