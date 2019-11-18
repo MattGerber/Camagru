@@ -3,7 +3,7 @@ include "sendmail.func.php";
 session_start();
     if (isset($_POST['comment-submit'])){
 
-		print_r($_SESSION);
+		// print_r($_SESSION);
 		$comment = htmlspecialchars($_POST['comment']);
 		$user = $_SESSION['username'];
 		$userid = $_SESSION['id'];

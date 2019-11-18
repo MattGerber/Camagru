@@ -38,7 +38,7 @@
                 <br />
             	<button type="submit" name="take" class="button is-danger" id="capture">Take Photo</button>
       <form action="functions/uploadImage.func.php" method="post" enctype="multipart/form-data">
-		          <button type="submit" name="post-submit" value ="SEND" class="button is-danger" onclick="getimgsrc()" id="post">Post</button>
+		          <button type="submit" name="post-submit" value ="" class="button is-danger" onclick="getimgsrc()" id="post">Post</button>
       </form>
                 <br />
                 <canvas id="canvas" style="height:480px; width:640px;"></canvas>
