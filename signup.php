@@ -13,7 +13,7 @@
 				<div class="field">
 				<label class="label">Username</label>
 					<div class="control has-icons-left has-icons-right">
-						<input class="input is-success" name="username" type="text" placeholder="Username" <?php if(isset($_GET['uid'])){echo "value=".$_GET['uid'];} ?>>
+						<input class="input" name="username" type="text" placeholder="Username" <?php if(isset($_GET['uid'])){echo "value=".$_GET['uid'];} ?>>
 						<span class="icon is-small is-left">
 							<i class="fas fa-user"></i>
 						</span>
@@ -27,7 +27,7 @@
 				<div class="field">
 				<label class="label">Email</label>
 					<div class="control has-icons-left has-icons-right">
-						<input class="input is-danger" name="email" type="email" placeholder="Email Address" <?php if(isset($_GET['mail'])){echo "value=".$_GET['mail'];} ?>>
+						<input class="input" name="email" type="email" placeholder="Email Address" <?php if(isset($_GET['mail'])){echo "value=".$_GET['mail'];} ?>>
 						<span class="icon is-small is-left">
 							<i class="fas fa-envelope"></i>
 						</span>
