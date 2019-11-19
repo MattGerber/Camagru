@@ -56,6 +56,23 @@
                 <canvas id="canvas" style="height:480px; width:640px;"></canvas>
         </div>
     </div>
+    <div class="box has-background-grey-lighter">
+      <div class="container has-text-centered">
+        <label class="label">Choose A Sticker</label>
+		
+		<img src="stickers/bubbles-sticker.png" style="height:90px; width:90px; margin-right:10px;">
+	
+		<img src="stickers/heart-sticker.png" style="height:90px; width:90px; margin-right:10px;">
+		
+		<img src="stickers/roses-sticker.png" style="height:90px; width:90px; margin-right:10px;">
+
+		<img src="stickers/puppy-sticker.png" style="height:90px; width:90px; margin-right:10px;">
+	
+		<img src="stickers/smoke-sticker.png" style="height:90px; width:90px; margin-right:10px;">
+
+		<img src="stickers/target-sticker.png" style="height:90px; width:90px;">
+	  </div>
+    </div>
     <script src="photo.js"></script>
 </div>
 </div>
