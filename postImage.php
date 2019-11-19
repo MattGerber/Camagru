@@ -7,7 +7,7 @@
   
 <div class="box is-7 is-large has-background-dark" style="margin-top:50px;">
 <div class="columns is-fullheight" style="margin-top: 10px; margin-left:10px;">
-  <div class="column is-2 is-sidebar-menu is-hidden-mobile" style="width:fit-content;">
+  <div class="is-hidden-mobile" style="width:fit-content; max-height:1350px;">
     <aside class="box has-background-grey-lighter">
   <p class="menu-label">
     Previous Images

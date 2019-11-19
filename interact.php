@@ -16,18 +16,21 @@
 				$_SESSION['imageid'] = $_GET['id'];   
 			   ?>
         </div>
-		<a href="functions/like.func.php" class="button">likes: <?php display_likes($_GET['id']);?></a>
-		<div class="container has-background-light is-large">
+		<a href="functions/like.func.php" class="button is-danger" style="margin-bottom:5px; margin-top:5px;">likes: <?php display_likes($_GET['id']);?></a>
+		<form action="functions/comment.func.php" method="post">
+		<input class="input" type="text" name ="comment" style="width:500px; margin-bottom:5px;">
+		<button class="button is-danger" type="submit" name = "comment-submit" style="margin-botttom:5px;">Comment</button>		
+		</form>
+		<div class="box has-background-light is-large">
 			   <?php 
 			   display_comments($_GET['id']);   
 			   ?>
         </div>
-		<form action="functions/comment.func.php" method="post">
-		<input type="text" name ="comment">
-		<button type="submit" name = "comment-submit">Comment</button>		
-		</form>
     </div>
     </div>
         </div>
       </div>
 </main>
+<?php
+	require "footer.php";
+?>

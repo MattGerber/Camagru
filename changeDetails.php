@@ -11,9 +11,9 @@ session_start();
       
 	  <form action="functions/changeprofilepic.func.php" method="post" enctype="multipart/form-data">
     <div class="column is-centered">
-        <label class="label">Add Photos</label>
-            <div class="box" style="width:fit-content">
-            <div class="file is-danger">
+        <label class="label">Profile Photo</label>
+            <div class="box" style="width:fit-content margin-left: 25px;">
+            <div class="file is-danger" style="margin-left:35px;">
   <label class="file-label">
     <input class="file-input" type="file" name="resume" id="photo">
     <span class="file-cta">
@@ -29,7 +29,7 @@ session_start();
 </div>
 </div>
     <!-- <button type="submit" name="post" class="button is-danger">Post</button> -->
-		<button type="submit" name="pic-submit" value ="SEND" class="button is-danger">change</button>
+		<button type="submit" name="pic-submit" value ="SEND" class="button is-danger">change photo</button>
     </form>
     <br />
 
@@ -54,8 +54,11 @@ session_start();
 </div>
 <input type="checkbox" name="notifications"> notifications
 <br />
-<button type="submit" name = "change-submit" value="yes" class="button is-danger">Update</button>
+<button type="submit" name = "change-submit" value="yes" class="button is-danger">update details</button>
 </form>
 </div>
 </div>
 </main>
+<?php
+	require "footer.php";
+?>
