@@ -15,6 +15,18 @@
         context.drawImage(video, 0, 0, 640, 480, 0, 0, canvas.width, canvas.height);
     });
     
+    
+    if (navigator.getUserMedia){
+        navigator.getUserMedia({video:true}, streamWebCam, throwError);
+    }
+    function streamWebCam(stream){
+        video.srcObject = stream;
+        video.play();
+    }
+    function throwError(e){
+        alert(e.name);
+    }
+    
     function draw(e){
         var reader = new FileReader();
         reader.onload = function(event){
@@ -33,21 +45,10 @@
  
     };
     
-    if (navigator.getUserMedia){
-        navigator.getUserMedia({video:true}, streamWebCam, throwError);
-    }
-    function streamWebCam(stream){
-        video.srcObject = stream;
-        video.play();
-    }
-    function throwError(e){
-        alert(e.name);
-    }
 })();
-
-function getimgsrc(){
-    var img = new Image();
-    img.src = canvas.toDataURL();
-	var button = document.getElementById('post');
-    button.value=img.src;
-};
+    function getimgsrc(){
+        var img = new Image();
+        img.src = canvas.toDataURL();
+        var button = document.getElementById('post');
+        button.value=img.src;
+    }

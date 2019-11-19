@@ -1,6 +1,6 @@
 <?php
 session_start();
-function display_all_photos($id, $uid) {
+function display_all_photos($id, $uid,$width, $height) {
 	$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 	$add = "";
 		try {
@@ -26,21 +26,17 @@ function display_all_photos($id, $uid) {
 						$_SESSION["url"] = $_SERVER['REQUEST_URI']; 
 						if ($_SESSION['id'] == $id)
 						$add = '<form action="functions/deletepicture.func.php" method="post"><button type="submit" class="button" name="delete-submit" value ="'.$image['id'].'">Delete</button></form>';
-				   		echo "<div class = 'box column is-7 is-offset-one-quarter'>
+						echo "<div class = 'box column is-7 is-offset-one-quarter' style='height:fit-content; width:fit-content;'>
 						<br />
 					   		<h1 class='subtitle is-3 has-text-centered'>
-						   		<a href='interact.php?id=".$image['id']."'><img style='height:480; width:640;' src=data:image/png;base64,".base64_encode($image['source'])."></a>
+								<a href='interact.php?id=".$image['id']."'><img style='height:$height; width:$width;' src='data:image/png;base64,".base64_encode($image['source'])."'></a>
 					   		</h1>".$add."
 						<br />
 						</div>";
 					}
 					else {
-						echo "<div class = 'box column is-7 is-offset-one-quarter'>
-						<br />
-					   		<h1 class='subtitle is-3 has-text-centered'>
-						   		<a href='#'><img style='height:480; width:640;' src=data:image/png;base64,".base64_encode($image['source'])."></a>
-					   		</h1>
-						<br />
+						echo "<div class = 'box column is-7 is-offset-one-quarter' style='height:fit-content; width:fit-content;>
+						   		<a href='#'><img style='height:$height; width:$width;' src='data:image/png;base64,".base64_encode($image['source'])."'></a>
 						</div>";
 					}
 				}

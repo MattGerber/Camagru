@@ -31,11 +31,14 @@
 </div>
 </div>
 </div>
-<div class="container has-text-centered">
+<!-- <div class="container has-text-centered"> -->
       <div class="box is-7 is-large has-background-dark" style="margin-top: 5px;">
         <div class="container is-large">
-          <?php display_all_photos(getuserid($_GET['user']),null); ?>
+          <?php display_all_photos($_SESSION['id'],null, "640px", "480px"); ?>
         </div>
 	  </div>
-</div>
+<!-- </div> -->
 </main>
+<?php
+  require "footer.php";
+?>
