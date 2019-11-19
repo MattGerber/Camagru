@@ -19,8 +19,11 @@
 			
 			$data = $select->fetch();
 			// print_r($data);
-
-			if (empty($passwd)) {
+			if ($data['verified'] != 1){
+				header("location: ../index.php?error=accountnotverified&email=".$email);
+				exit();
+			}
+			else if (empty($passwd)) {
 				// print_r($_POST);
 				header("location: ../index.php?error=emptyfield&email=".$email);
 				exit();
