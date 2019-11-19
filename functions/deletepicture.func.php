@@ -1,6 +1,7 @@
 <?php
 $imageid = $_POST['delete-submit'];
 print_r($_POST);
+session_start();
 if (isset($imageid)){
 	try
 	{
@@ -9,7 +10,8 @@ if (isset($imageid)){
 	$delete->bindParam(':imageid',$imageid);
 	$delete->execute();	
 	echo $imageid;
-	header("location: ../myProfile.php");
+	echo "location: ".$_SESSION['url'];
+	header("location: ".$_SESSION['url']);
 	}
 	catch(PDOException $e)
 	{

@@ -1,6 +1,7 @@
 <?php
 	require "header2.php";
 	include "functions/display.func.php";
+
 ?>
 
 <main class="hero is-fullheight has-background-dark">

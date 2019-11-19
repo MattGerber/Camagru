@@ -23,6 +23,7 @@ function display_all_photos($id, $uid) {
 			if ($data) {
 				foreach ($data as $image) {
 					if (isset($_SESSION['username'])){
+						$_SESSION["url"] = $_SERVER['REQUEST_URI']; 
 						if ($_SESSION['id'] == $id)
 						$add = '<form action="functions/deletepicture.func.php" method="post"><button type="submit" class="button" name="delete-submit" value ="'.$image['id'].'">Delete</button></form>';
 				   		echo "<div class = 'box column is-7 is-offset-one-quarter'>
@@ -64,7 +65,7 @@ function display_comments($id) {
 					 print_r($user);
 				   echo "
 					   <h1 class='subtitle  has-text-centered' style ='border-bottom: 2px solid grey' >
-							<a href='profile.php?user=".$comment['username']."'><img class= 'is-rounded'style='width: 20px; height: 20px;' src='data:image/png;base64,".base64_encode($comment['picturesource'])."'>".$comment['username']." : ".$comment['text']."</p>
+							<p><a href='profile.php?user=".$comment['username']."'><img class= 'is-rounded'style='width: 20px; height: 20px;' src='data:image/png;base64,".base64_encode($comment['picturesource'])."'>".$comment['username']."</a> : ".$comment['text']."</p>
 					   </h1>
 					";
 				}

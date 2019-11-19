@@ -45,7 +45,7 @@
             `source` LONGBLOB NOT NULL,
 			-- `type` VARCHAR(255) NOT NULL,
             `creationdate` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-            FOREIGN KEY (userid) REFERENCES users(id)
+            FOREIGN KEY (userid) REFERENCES users(id) ON DELETE CASCADE
             )";
         $dbh->exec($sql);
         echo "Table gallery created successfully\n";
@@ -81,8 +81,8 @@
             `userid` INT NOT NULL,
             `imageid` INT NOT NULL,
             `text` VARCHAR(255) NOT NULL,
-            FOREIGN KEY (userid) REFERENCES users(id),
-            FOREIGN KEY (imageid) REFERENCES image(id)
+            FOREIGN KEY (userid) REFERENCES users(id) ON DELETE CASCADE,
+            FOREIGN KEY (imageid) REFERENCES image(id) ON DELETE CASCADE
             )";
         $dbh->exec($sql);
         echo "Table comment created successfully\n";
