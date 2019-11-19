@@ -3,11 +3,13 @@
 	session_start();
 	if (isset($_POST['pic-submit'])){
 		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
-		$filename = $_FILES['image']['name'];
-		$source = file_get_contents($_FILES['image']['tmp_name']);
+		$filename = $_FILES['resume']['name'];
+		$source = file_get_contents($_FILES['resume']['tmp_name']);
 		$id = $_SESSION['id'];
-		echo $id;
-		$type = $_FILES['image']['type'];
+		// echo $id;
+		$type = $_FILES['resume']['type'];
+		print_r($_FILES);
+		echo $type;
 		if  (substr($type,0,5) == "image"){
 			$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 			$update = $con->prepare("UPDATE `users` SET `picturesource` = :pic WHERE `users`.`id` =:id ");
@@ -18,7 +20,7 @@
 			header("location: ../changeDetails.php");
 		}
 		else{
-			header("location: ../changeDetails.php");
+			header("location: ../changeDetails.php?error=failed");
 		}
 	}
 ?>

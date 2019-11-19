@@ -17,7 +17,7 @@
 			$data = $select->fetch();
 			$token = $data['token'];
 			if ($token == $_SESSION['token']){
-				$update = $con->prepare("UPDATE `users` SET `verified` = b'1' WHERE `users`.`username` =:username ");
+				$update = $con->prepare("UPDATE `users` SET `verified` = '2' WHERE `users`.`username` =:username ");
 				$update->bindParam(':username',$data['username']);
 				$update->execute();
 				header("location:../gallery.php");

@@ -19,7 +19,7 @@
 			
 			$data = $select->fetch();
 			// print_r($data);
-			if ($data['verified'] != 1){
+			if ($data['verified'] == 0){
 				header("location: ../index.php?error=accountnotverified&email=".$email);
 				exit();
 			}
@@ -34,6 +34,7 @@
 				$_SESSION['username'] = $data['username'];
 				$_SESSION['pic'] = $data['picturesource'];
 				$_SESSION['passwd'] = $data['password'];
+				$_SESSION['verified'] = $data['verified'];
 				header("location:../gallery.php");
 			}
 			else {

@@ -40,6 +40,7 @@
 			$update->execute();
 			$_SESSION['email'] = $email;
 			$_SESSION['username'] = $username;
+			$_SESSION['verified'] =  $check;
 			
 			header("location:../changeDetails.php");
 

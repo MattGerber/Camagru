@@ -17,7 +17,7 @@ session_start();
 		$select->execute();
 		
 		$data = $select->fetch();
-		if ($data['verified'] == 1){
+		if ($data['verified'] == 2){
 			print_r($data);
 			sendmailnotification($data['email'], "commented on", $data['imageid'], $user);
 

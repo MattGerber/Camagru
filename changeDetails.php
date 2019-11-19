@@ -37,7 +37,7 @@ session_start();
 <div class="field">
 				<label class="label">Email</label>
 					<div class="control has-icons-left has-icons-right">
-						<input class="input" name="email" type="email" placeholder="Email Address" <?php if(isset($_GET['mail'])){echo "value=".$_GET['mail'];} ?>>
+						<input class="input" name="email" type="email" placeholder="Email Address" <?php if(isset($_SESSION['email'])){echo "value=".$_SESSION['email'];} ?>>
 						<span class="icon is-small is-left">
 							<i class="fas fa-envelope"></i>
 						</span>
@@ -46,13 +46,13 @@ session_start();
 <div class="field">
 				<label class="label">Username</label>
 					<div class="control has-icons-left has-icons-right">
-						<input class="input" name="username" type="text" placeholder="Username" <?php if(isset($_GET['uid'])){echo "value=".$_GET['uid'];} ?>>
+						<input class="input" name="username" type="text" placeholder="Username" <?php if(isset($_SESSION['username'])){echo "value=".$_SESSION['username'];} ?>>
 						<span class="icon is-small is-left">
 							<i class="fas fa-user"></i>
 						</span>
                     </div>
 </div>
-<input type="checkbox" name="notifications"> notifications
+<input type="checkbox" name="notifications" <?php if($_SESSION['verified'] == 2){echo "checked";} ?>> notifications
 <br />
 <button type="submit" name = "change-submit" value="yes" class="button is-danger">update details</button>
 </form>
