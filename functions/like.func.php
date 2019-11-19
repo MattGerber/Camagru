@@ -11,7 +11,7 @@
 	if($d > 0){
 		try
 		{
-		$delete = $insert = $con->prepare("DELETE FROM `like` WHERE imageid = :imageid AND userid = :userid");
+		$delete = $con->prepare("DELETE FROM `like` WHERE imageid = :imageid AND userid = :userid");
 		$delete->bindParam(':imageid',$imageid);
 		$delete->bindParam(':userid',$userid);
 		$delete->execute();	
