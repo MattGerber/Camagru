@@ -1,10 +1,6 @@
 <?php
 	include_once 'dbh.inc.php';
 	session_start();
-	// if (isset($_GET['error'])){
-	// 	echo "<script>alert('".$_GET['error']."')</script>";
-	// }
-	
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,26 +59,26 @@
       </div>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-      <form method="post" action="functions/login.func.php">
-        <div class="level">
-				  <input class="input" type="email" name="email" placeholder="Email" style="margin-right: 5px" <?php if(isset($_GET['mail'])){echo "value=".$_GET['mail'];} ?>>
-				  <input class="input" type="password" name="passwd" placeholder="Password" style="margin-right: 5px">
-          <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px">
-            <strong>Login</strong>
-          </a>
-        </div>
-			</form>
-        <a class="button is-danger is-outlined" href="signup.php" style="margin-right: 5px">
-          <strong>Sign Up</strong>
-        </a>
-        <form action="forgot.php" method="post">
-          <button class="button is-danger" type="submit" name="forgot-submit" style="margin-right: 5px">
-            <strong>forgot password?</strong>
-          </a>
-			</form>
-      </div>
+    <!-- <div class="navbar-end"> -->
+      <!-- <div class="navbar-item"> -->
+      <!-- <form method="post" action="functions/login.func.php"> -->
+        <!-- <div class="level"> -->
+				  <!-- <input class="input" type="email" name="email" placeholder="Email" style="margin-right: 5px"> -->
+				  <!-- <input class="input" type="password" name="passwd" placeholder="Password" style="margin-right: 5px"> -->
+          <!-- <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px"> -->
+            <!-- <strong>Login</strong> -->
+          <!-- </a> -->
+        <!-- </div> -->
+			<!-- </form> -->
+        <!-- <a class="button is-danger is-outlined" href="signup.php" style="margin-right: 5px"> -->
+          <!-- <strong>Sign Up</strong> -->
+        <!-- </a> -->
+        <!-- <form action="forgot.php" method="post"> -->
+          <!-- <button class="button is-danger" type="submit" name="forgot-submit" style="margin-right: 5px"> -->
+            <!-- <strong>forgot password?</strong> -->
+          <!-- </a> -->
+			<!-- </form> -->
+      <!-- </div> -->
     </div>
   </div>
 </nav>
