@@ -18,20 +18,20 @@
 			exit();
 		}
 		else if (!preg_match("/^[a-zA-Z0-9_]*$/", $username)){
-			header("location: ../signup.php?error=username&display-name=".$name."&mail=".$email);
+			header("location: ../signup.php?error=username&mail=".$email);
 			exit();
 		}
 		else if ($passwd !== $pwd_repeat) {
-			header("location: ../signup.php?error=password&display-name=".$name."&uid=".$username."&mail=".$email);
+			header("location: ../signup.php?error=password&uid=".$username."&mail=".$email);
 			exit();
 		}
 		else if (!preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $passwd) || strlen($passwd) < 8)
 		{
-			header("location: ../signup.php?error=passwordnotsecure&display-name=".$name."&uid=".$username."&mail=".$email);
+			header("location: ../signup.php?error=passwordnotsecure&uid=".$username."&mail=".$email);
 			exit();
 		}
 		else if($d > 0){
-			header("location: ../signup.php?error=userexists&display-name=".$name."&uid=".$username."&mail=".$email);
+			header("location: ../signup.php?error=userexists&uid=".$username."&mail=".$email);
 			exit();
 		}
 		else{
