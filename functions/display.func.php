@@ -50,18 +50,21 @@ function display_comments($id) {
 	$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 		try {
 			
-			$all_comments = "SELECT * FROM `comment` INNER JOIN `users` on `userid` = users.id WHERE imageid = :id";
+			$all_comments = "SELECT comment.`id` AS 'commentid',comment.`userid`,comment.`imageid`,comment.`text`,users.username, users.picturesource FROM `comment` INNER JOIN `users` on `userid` = users.id WHERE imageid = :id";
 			$get_comments = $con->prepare($all_comments);
 			$get_comments->bindParam(':id', $id);
 			$get_comments->execute();
 			$data = $get_comments->fetchAll(PDO::FETCH_ASSOC);
+			$add = "";
 
 			if ($data) {
 				foreach ($data as $comment) {
 					 print_r($user);
+					 if ($_SESSION['id'] == $comment['userid'])
+						$add = '<form action="functions/deletecomment.func.php" method="post"><button type="submit" class="button" name="delete-submit" value ="'.$comment['commentid'].'">Delete</button></form>';
 				   echo "
 					   <h1 class='subtitle  has-text-centered' style ='border-bottom: 2px solid grey' >
-							<p><a href='profile.php?user=".$comment['username']."'><img class= 'is-rounded'style='width: 20px; height: 20px;' src='data:image/png;base64,".base64_encode($comment['picturesource'])."'>".$comment['username']."</a> : ".$comment['text']."</p>
+							<p><a href='profile.php?user=".$comment['username']."'><img class= 'is-rounded'style='width: 20px; height: 20px;' src='data:image/png;base64,".base64_encode($comment['picturesource'])."'>".$comment['username']."</a> : ".$comment['text'].$add."</p>
 					   </h1>
 					";
 				}
