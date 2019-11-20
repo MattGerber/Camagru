@@ -36,8 +36,8 @@
         Home
       </a>
 
-      <a class="navbar-item">
-        Documentation
+      <a href="discover.php" class="navbar-item">
+        Discover
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">

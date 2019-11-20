@@ -5,17 +5,17 @@ function display_all_photos($id, $uid,$width, $height) {
 	$add = "";
 		try {
 			if (isset($id)){
-				$all_photos = "SELECT * FROM `image` WHERE `userid` = :id ORDER BY id DESC";
+				$all_photos = "SELECT image.id AS 'imageid', image.source, users.username, image.userid FROM `image` INNER JOIN users on users.id = userid WHERE image.`userid` = :id ORDER BY image.id DESC  ";
 				$get_all_photos = $con->prepare($all_photos);
 				$get_all_photos->bindParam(':id', $id);
 			}
 			else if (isset($uid)){
-				$all_photos = "SELECT * FROM `image` WHERE `id` = :id ORDER BY id DESC";
+				$all_photos = "SELECT image.id AS 'imageid', image.source, users.username, image.userid FROM `image` INNER JOIN users on users.id = userid WHERE image.`id` = :id ORDER BY image.id DESC ";
 				$get_all_photos = $con->prepare($all_photos);
 				$get_all_photos->bindParam(':id', $uid);
 			}
 			else{
-				$all_photos = "SELECT * FROM `image`ORDER BY id DESC";
+				$all_photos = "SELECT image.id AS 'imageid', image.source, users.username, image.userid FROM `image` INNER JOIN users on users.id = userid ORDER BY image.id DESC";
 				$get_all_photos = $con->prepare($all_photos);
 			}
 			$get_all_photos->execute();
@@ -25,11 +25,14 @@ function display_all_photos($id, $uid,$width, $height) {
 					if (isset($_SESSION['username'])){
 						$_SESSION["url"] = $_SERVER['REQUEST_URI']; 
 						if ($_SESSION['id'] == $id)
-						$add = '<form action="functions/deletepicture.func.php" method="post"><button type="submit" class="button" name="delete-submit" value ="'.$image['id'].'">Delete</button></form>';
+						$add = '<form action="functions/deletepicture.func.php" method="post"><button type="submit" class="button" name="delete-submit" value ="'.$image['imageid'].'">Delete</button></form>';
 						echo "<div class = 'box column is-7 is-offset-one-quarter' style='height:fit-content; width:fit-content;'>
 						<br />
 					   		<h1 class='subtitle is-3 has-text-centered'>
-								<a href='interact.php?id=".$image['id']."'><img style='height:$height; width:$width;' src='data:image/png;base64,".base64_encode($image['source'])."'></a>
+								<a href='interact.php?id=".$image['imageid']."'><img style='height:$height; width:$width;' src='data:image/png;base64,".base64_encode($image['source'])."'></a>
+								<br>
+								<strong class='is-size-5'>posted by: 
+								<a href='profile.php?user=".$image['username']."'>".$image['username']."</a></strong>
 					   		</h1>".$add."
 						<br />
 						</div>";
@@ -101,6 +104,17 @@ function display_comments($id) {
 		
 		$data = $select->fetch();
 		return($data['id']);
-	}	
+	}
+
+	function getimgsrc($user){
+		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
+		
+		$select = $con->prepare("SELECT * FROM `users` WHERE username = :user");
+		$select->bindParam(':user',$user);
+		$select->setFetchMode(PDO::FETCH_ASSOC);
+		$select->execute();
+		
+		$data = $select->fetch();
+		return($data['picturesource']);
+	}
 ?>
-<form action="" method="post"></form>

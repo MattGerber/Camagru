@@ -14,7 +14,7 @@
 			}
 			else if (!preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $passwd) || strlen($passwd) < 8)
 			{
-				header("location: ../signup.php?error=passwordnotsecure&display-name=".$name."&uid=".$username."&mail=".$email);
+				header("location: ../changepass.php?error=passwordnotsecure");
 				exit();
 			}
 			else{

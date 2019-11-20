@@ -88,5 +88,23 @@
         echo "Table comment created successfully\n";
     } catch (PDOException $e) {
         echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
+	}
+	
+    // CREATE TABLE FOLLOWING
+    try {
+        // Connect to DATABASE previously created
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "CREATE TABLE `following` (
+            `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            `userid` INT(11) NOT NULL,
+            `followid` INT(11) NOT NULL,
+            FOREIGN KEY (userid) REFERENCES `users`(id),
+            FOREIGN KEY (userid) REFERENCES `users`(id)
+            )";
+        $dbh->exec($sql);
+        echo "Table following created successfully\n";
+    } catch (PDOException $e) {
+        echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
     }
 ?>

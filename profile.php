@@ -14,17 +14,18 @@
     <div class='column is-2 has-text-white'>
       <span class='header-icon user-profile-image '>
 	  <figure class= "image is-128x128">
-        <img class="is-rounded" src=<?php echo "data:image/png;base64,".base64_encode($_SESSION['pic']) ?>>
+        <img class="is-rounded" src="<?php echo "data:image/png;base64,".base64_encode(getimgsrc($_GET['user'])) ?>">
 	  </figure>
       </span>
     </div>
     <div class='column is-4-tablet is-10-mobile name '>
-		<strong class='has-text-white is-size-1'><?php echo $_GET['user'] ?></strong>
-        <!-- <a class='button is-danger is-outlined' href='changepass.php' style='margin: 5px'>
-          Edit Password
+        <a class='button is-danger is-outlined' href='' style='margin: 5px'>
+          follow
         </a>
-        <a class='button is-danger is-outlined' href='changeDetails.php' style='margin: 5px'>
-          Edit Profile
+		<br>
+		<strong class='has-text-white is-size-1'><?php echo $_GET['user'] ?></strong>
+        <!-- <a class='button is-danger is-outlined' href='changeDetails.php' style='margin: 5px'> 
+		    Edit Profile
         </a> -->
     </div>
   </div>
