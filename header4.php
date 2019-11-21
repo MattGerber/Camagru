@@ -30,36 +30,16 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="index.php">
-        Home
+      <a class="navbar-item" href="feed.php">
+	  Feed
       </a>
 
-      <a href="discover.php" class="navbar-item">
+      <a href="gallery.php" class="navbar-item">
         Discover
       </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
 
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a href="report.php" class="navbar-item">
-            Report an issue
-          </a>
-        </div>
-      </div>
-    </div>
+	  </div>
 
     <div class="navbar-end">
       <div class="navbar-item">

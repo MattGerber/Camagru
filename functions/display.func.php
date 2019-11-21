@@ -117,4 +117,78 @@ function display_comments($id) {
 		$data = $select->fetch();
 		return($data['picturesource']);
 	}
+
+	function displayfollowing($user){
+		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
+		try {
+			$sql = "SELECT count(*) AS 'following' FROM `following` WHERE `userid` = :id";
+			$following = $con->prepare($sql);
+			$following->bindParam(':id', getuserid($user));
+			$following->execute();
+			$data = $following->fetchAll(PDO::FETCH_ASSOC);
+				if ($data) {
+					foreach ($data as $following) {
+					   return $following['following'];
+					}
+				}
+			} catch (PDOException $exception) {
+				echo $following."<br>".$exception;
+			}
+	}
+
+	function displayfollowers($user){
+		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
+		try {
+			$sql = "SELECT count(*) AS 'following' FROM `following` WHERE `followid` = :id";
+			$following = $con->prepare($sql);
+			$following->bindParam(':id', getuserid($user));
+			$following->execute();
+			$data = $following->fetchAll(PDO::FETCH_ASSOC);
+				if ($data) {
+					foreach ($data as $following) {
+					   return $following['following'];
+					}
+				}
+			} catch (PDOException $exception) {
+				echo $following."<br>".$exception;
+			}
+	}
+
+	function displayfeed(){
+		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
+		try {
+			$select = $con->prepare("SELECT * FROM `following` WHERE userid = :id");
+			$select->bindParam(':id', $_SESSION['id']);
+			$select->execute();
+			$data = $select->fetchAll(PDO::FETCH_ASSOC);
+				foreach ($data as $follow){
+					display_all_photos($follow['followid'],null, "640px", "480px");
+				}
+			} catch (PDOException $exception) {
+				echo $following."<br>".$exception;
+		}
+	}
+
+	function displayresult($term){
+		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
+		
+		$param = "%{$term}%";
+
+		$stmt = "SELECT * FROM `users` WHERE username LIKE '$param' ";
+		$select = $con->prepare($stmt);
+		// $select->bindParam("s",$param);
+		$select->setFetchMode(PDO::FETCH_ASSOC);
+		$select->execute();
+		
+		$data = $select->fetchAll();
+		if ($data) {
+			foreach ($data as $result) {
+			   echo "
+				   <h1 class='subtitle  has-text-centered' style ='border-bottom: 2px solid grey' >
+						<p><a href='profile.php?user=".$result['username']."'><img class= 'is-rounded'style='width: 150px; height: 150px;' src='data:image/png;base64,".base64_encode($result['picturesource'])."'><strong class='has-text-white is-size-1'>".$result['username']."</strong></a> </p>
+				   </h1>
+				";
+			}
+		}
+	}
 ?>

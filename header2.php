@@ -28,41 +28,24 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="gallery.php">
-        Home
+      <a class="navbar-item" href="feed.php">
+	  Feed
       </a>
 
-      <a href="discover.php" class="navbar-item">
+      <a href="gallery.php" class="navbar-item">
         Discover
       </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a href="report.php" class="navbar-item">
-            Report an issue
-          </a>
-        </div>
-      </div>
-    </div>
+	  </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
-      <form action="login.func.php" method="post" action="functions/login.func.php">
+	  <form method="post" action="functions/search.func.php">
         <div class="level">
+				  <input class="input" type="text" name="search" placeholder="Search for user" style="margin-right: 5px">
+          <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px">
+            <strong>Search</strong>
+          </a>
 				  <!-- <input class="input" type="email" name="mailuid" placeholder="Email" style="margin-right: 5px"> -->
 				  <!-- <input class="input" type="password" name="pwd" placeholder="Password" style="margin-right: 5px"> -->
           <!-- <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px"> -->
