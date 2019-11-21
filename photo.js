@@ -4,6 +4,15 @@ var video = document.getElementById('video'),
     canvas2 = document.getElementById('canvas2'),
     context2 = canvas2.getContext('2d'),
     context= canvas.getContext('2d');
+var rect= canvas.getBoundingClientRect();
+console.log("ctop"+rect.top);
+console.log("cbot"+rect.bottom);
+console.log("cleft"+rect.left);
+console.log("cright"+rect.right);
+// canvas2.style.top = canvas.style.top;
+// canvas2.style.left = canvas.style.left;
+// canvas2.style.right = canvas.style.right;
+// canvas2.style.bottom = canvas.style.bottom;
 (function(){
         // vendorUrl = window.URL || window.webkitURL;
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
