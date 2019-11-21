@@ -62,8 +62,8 @@
             `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             `userid` INT(11) NOT NULL,
             `imageid` INT(11) NOT NULL,
-            FOREIGN KEY (userid) REFERENCES `users`(id),
-            FOREIGN KEY (imageid) REFERENCES `image`(id)
+            FOREIGN KEY (userid) REFERENCES `users`(id) ON DELETE CASCADE,
+            FOREIGN KEY (imageid) REFERENCES `image`(id) ON DELETE CASCADE
             )";
         $dbh->exec($sql);
         echo "Table like created successfully\n";
