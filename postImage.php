@@ -55,8 +55,8 @@
       </form>
                 <!-- <img id="filter"> -->
                 <div style="position:relative; height:480px;">
-                <canvas id="canvas" style="height:480px; width:640px;"></canvas>
-                <canvas id="canvas2" style="height:480px; width:640px; position:relative; top:-486px; left:0;"></canvas>
+                <canvas id="canvas" style="max-height:480px; max-width:640px; height:100%; width:75%;"></canvas>
+                <canvas id="canvas2" style="max-height:480px; max-width:640px; height:100%; width:75%; position:relative; top:-486px; left:0;"></canvas>
                 </div>
         </div>
     </div>
