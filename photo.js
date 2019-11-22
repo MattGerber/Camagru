@@ -3,16 +3,8 @@ var video = document.getElementById('video'),
     canvas = document.getElementById('canvas'),
     canvas2 = document.getElementById('canvas2'),
     context2 = canvas2.getContext('2d'),
-    context= canvas.getContext('2d');
-var rect= canvas.getBoundingClientRect();
-console.log("ctop"+rect.top);
-console.log("cbot"+rect.bottom);
-console.log("cleft"+rect.left);
-console.log("cright"+rect.right);
-// canvas2.style.top = canvas.style.top;
-// canvas2.style.left = canvas.style.left;
-// canvas2.style.right = canvas.style.right;
-// canvas2.style.bottom = canvas.style.bottom;
+	context= canvas.getContext('2d');
+var stickerselected = false;
 (function(){
         // vendorUrl = window.URL || window.webkitURL;
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
@@ -70,8 +62,12 @@ console.log("cright"+rect.right);
         var sticker = new Image();
         img.src = canvas.toDataURL();
         sticker.src = canvas2.toDataURL();
-        var button = document.getElementById('post');
-        button.value=img.src+"#"+sticker.src;
+		var button = document.getElementById('post');
+		if(stickerselected)
+			button.value=img.src+"#"+sticker.src;
+		else 
+			button.value=img.src;
+		stickerselected = false;
         console.log(button.value);
     }
 
@@ -86,6 +82,7 @@ console.log("cright"+rect.right);
         canvas2.height=300;
         context2.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas2.width, canvas2.height);
             console.log(src);
-        }
+		}
+		stickerselected = true;
     }
     
