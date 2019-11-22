@@ -20,7 +20,7 @@
 				$update = $con->prepare("UPDATE `users` SET `verified` = '2' WHERE `users`.`username` =:username ");
 				$update->bindParam(':username',$data['username']);
 				$update->execute();
-				header("location:../gallery.php");
+				header("location:./logout.func.php");
 			}
 			else {
 				header("location:../index.php?error=".$token."&sessin=".$_SESSION['token']);
