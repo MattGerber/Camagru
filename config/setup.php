@@ -25,7 +25,7 @@
             `password` VARCHAR(255) NOT NULL,
             `email` VARCHAR(100) NOT NULL,
             `verified` INT NOT NULL DEFAULT 0,
-            `picturesource` VARCHAR(255),
+            `picturesource` LONGBLOB,
 			`token` VARCHAR(255)
             )";
         $dbh->exec($sql);
@@ -43,9 +43,9 @@
             `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             `userid` INT NOT NULL,
             `source` LONGBLOB NOT NULL,
-			`type` VARCHAR(255) NOT NULL,
+			-- `type` VARCHAR(255) NOT NULL,
             `creationdate` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-            FOREIGN KEY (userid) REFERENCES users(id)
+            FOREIGN KEY (userid) REFERENCES users(id) ON DELETE CASCADE
             )";
         $dbh->exec($sql);
         echo "Table gallery created successfully\n";
@@ -62,8 +62,8 @@
             `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             `userid` INT(11) NOT NULL,
             `imageid` INT(11) NOT NULL,
-            FOREIGN KEY (userid) REFERENCES `users`(id),
-            FOREIGN KEY (imageid) REFERENCES `image`(id)
+            FOREIGN KEY (userid) REFERENCES `users`(id) ON DELETE CASCADE,
+            FOREIGN KEY (imageid) REFERENCES `image`(id) ON DELETE CASCADE
             )";
         $dbh->exec($sql);
         echo "Table like created successfully\n";
@@ -81,11 +81,29 @@
             `userid` INT NOT NULL,
             `imageid` INT NOT NULL,
             `text` VARCHAR(255) NOT NULL,
-            FOREIGN KEY (userid) REFERENCES users(id),
-            FOREIGN KEY (imageid) REFERENCES image(id)
+            FOREIGN KEY (userid) REFERENCES users(id) ON DELETE CASCADE,
+            FOREIGN KEY (imageid) REFERENCES image(id) ON DELETE CASCADE
             )";
         $dbh->exec($sql);
         echo "Table comment created successfully\n";
+    } catch (PDOException $e) {
+        echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
+	}
+	
+    // CREATE TABLE FOLLOWING
+    try {
+        // Connect to DATABASE previously created
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "CREATE TABLE `following` (
+            `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            `userid` INT(11) NOT NULL,
+            `followid` INT(11) NOT NULL,
+            FOREIGN KEY (userid) REFERENCES `users`(id),
+            FOREIGN KEY (userid) REFERENCES `users`(id)
+            )";
+        $dbh->exec($sql);
+        echo "Table following created successfully\n";
     } catch (PDOException $e) {
         echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
     }

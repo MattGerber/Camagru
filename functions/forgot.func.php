@@ -30,7 +30,7 @@ if (isset($_POST["forgot-submit"])){
 	<a href="http://localhost:8080/camagru/changepass.php?verify='.$token.'">Click here to reset password</a>
 	</body>
 	</html>';
-	sendmail($email, $body, $token);
+	sendmailverify($email, $body, $token);
 	echo "nannanananannana";
 		header("location: ../index.php");
 	}

@@ -7,30 +7,30 @@
 
 <main class="hero is-fullheight has-background-dark">
     <div style="color: white">
-    <a class="button is-danger" href="postImage.php" style="margin-right: 1100px; margin-top: 5px; margin-left: 5px">
-        <strong>Add a Photo</strong>
-    </a>
     <div class="container has-text-centered">
       <div class="box is-7 is-large has-background-dark" style="margin-top: 5px;">
         <div class="container is-large">
 			   <?php 
-			   display_all_photos(null,$_GET['id']);
+			   display_all_photos(null,$_GET['id'],"640px","480px");
 				session_start();
 				$_SESSION['imageid'] = $_GET['id'];   
 			   ?>
         </div>
-		<a href="functions/like.func.php" class="button">likes: <?php display_likes($_GET['id']);?></a>
-		<div class="container is-large">
+		<a href="functions/like.func.php" class="button is-danger" style="margin-bottom:5px; margin-top:5px;">likes: <?php display_likes($_GET['id']);?></a>
+		<form action="functions/comment.func.php" method="post">
+		<input class="input" type="text" name ="comment" style="width:500px; margin-bottom:5px;">
+		<button class="button is-danger" type="submit" name = "comment-submit" style="margin-botttom:5px;">Comment</button>		
+		</form>
+		<div class="box has-background-light is-large">
 			   <?php 
 			   display_comments($_GET['id']);   
 			   ?>
         </div>
-		<form action="functions/comment.func.php" method="post">
-		<input type="text" name ="comment">
-		<button type="submit" name = "comment-submit">Comment</button>		
-		</form>
     </div>
     </div>
         </div>
       </div>
 </main>
+<?php
+	require "footer.php";
+?>

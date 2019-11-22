@@ -3,7 +3,7 @@ include "sendmail.func.php";
 session_start();
     if (isset($_POST['comment-submit'])){
 
-		print_r($_SESSION);
+		// print_r($_SESSION);
 		$comment = htmlspecialchars($_POST['comment']);
 		$user = $_SESSION['username'];
 		$userid = $_SESSION['id'];
@@ -11,6 +11,18 @@ session_start();
 
 		$con = new PDO ("mysql:host=localhost;dbname=camagru", "root", "roooot");
 		
+		$select = $con->prepare("SELECT users.username, users.email , users.id, users.verified ,`image`.id AS 'imageid' FROM `image` INNER JOIN users on userid = users.id WHERE image.id = :imageid");
+		$select->bindParam(':imageid', $imageid);
+		$select->setFetchMode(PDO::FETCH_ASSOC);
+		$select->execute();
+		
+		$data = $select->fetch();
+		if ($data['verified'] == 2){
+			print_r($data);
+			sendmailnotification($data['email'], "commented on", $data['imageid'], $user);
+
+		}
+
         try
         {
 			// print_r($_POST);

@@ -14,7 +14,7 @@
   </head>
   <nav class="navbar is-black" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="gallery.php">
+    <a class="navbar-item" href="index.php">
       <img src="styles/james-fajardo.png" width="112" height="28">
 
     </a>
@@ -25,7 +25,7 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-
+<!-- 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="feed.php">
@@ -36,37 +36,28 @@
         Discover
       </a>
 
-	  </div>
+    </div> -->
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-	  <form method="post" action="functions/search.func.php">
-        <div class="level">
-				  <input class="input" type="text" name="search" placeholder="Search for user" style="margin-right: 5px">
-          <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px">
-            <strong>Search</strong>
-          </a>
-				  <!-- <input class="input" type="email" name="mailuid" placeholder="Email" style="margin-right: 5px"> -->
-				  <!-- <input class="input" type="password" name="pwd" placeholder="Password" style="margin-right: 5px"> -->
+    <!-- <div class="navbar-end"> -->
+      <!-- <div class="navbar-item"> -->
+      <!-- <form method="post" action="functions/login.func.php"> -->
+        <!-- <div class="level"> -->
+				  <!-- <input class="input" type="email" name="email" placeholder="Email" style="margin-right: 5px"> -->
+				  <!-- <input class="input" type="password" name="passwd" placeholder="Password" style="margin-right: 5px"> -->
           <!-- <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px"> -->
             <!-- <strong>Login</strong> -->
-          </a>
-        </div>
-			</form>
+          <!-- </a> -->
+        <!-- </div> -->
+			<!-- </form> -->
         <!-- <a class="button is-danger is-outlined" href="signup.php" style="margin-right: 5px"> -->
           <!-- <strong>Sign Up</strong> -->
         <!-- </a> -->
-		<a href="myProfile.php" class="navbar-item"><figure class="image "  style="margin-right: 15px">
- 		<img class="is-rounded" src=<?php echo "data:image/png;base64,".base64_encode($_SESSION['pic']) ?> style="height:30px; width:30px;">
-		</figure><strong><?php echo $_SESSION['username'];?></strong></a>
-    <a href="postImage.php" class="navbar-item"><figure class="image" style="margin-right: 10px;">
-    <img class="is-rounded" src="styles/addImage.png" style="height:30px; width:30px"></figure></a>
-        <form action="functions/logout.func.php" method="post">
-          <button class="button is-danger" type="submit" name="logout-submit" style="margin-right: 5px">
-            <strong>Logout</strong>
-          </a>
-			</form>
-      </div>
+        <!-- <form action="forgot.php" method="post"> -->
+          <!-- <button class="button is-danger" type="submit" name="forgot-submit" style="margin-right: 5px"> -->
+            <!-- <strong>forgot password?</strong> -->
+          <!-- </a> -->
+			<!-- </form> -->
+      <!-- </div> -->
     </div>
   </div>
 </nav>

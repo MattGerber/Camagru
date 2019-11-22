@@ -1,45 +1,86 @@
 <?php
-    require "header2.php";
+	require "header2.php";
+	include "functions/display.func.php";
+
 ?>
 
 <main class="hero is-fullheight has-background-dark">
   
+<div class="box is-7 is-large has-background-dark" style="margin-top:50px;">
 <div class="columns is-fullheight" style="margin-top: 10px; margin-left:10px;">
-  <div class="column is-2 is-sidebar-menu is-hidden-mobile">
-    <aside class="menu has-background-grey-lighter">
+  <div class="is-hidden-mobile" style="width:fit-content; max-height:1350px;">
+    <aside class="box has-background-grey-lighter">
   <p class="menu-label">
-    General
+    Previous Images
   </p>
-  <ul class="menu-list">
-    <li><a>Dashboard</a></li>
-    <li><a>Customers</a></li>
-  </ul>
+  <!-- <ul class="menu-list"> -->
+    <?php display_all_photos($_SESSION['id'], null,"180px","90px");?>
+  <!-- </ul> -->
 </aside>
   </div>
   <div class="column is-main-content">
   <div class="container has-text-centered">
-    <div class="box is-7 is-large has-background-grey-lighter" style="margin-top: 50px;">
+    <div class="box is-7 is-large has-background-grey-lighter" style="margin-top: 40px;">
     <div class="container is-large">
-    <table class="table is-bordered">
-<form action="functions/uploadImage.func.php" method="post" enctype="multipart/form-data">
     <div class="column has-text-centered">
         <label class="label">Add Photo</label>
     </div>
-        <tbody>
-            <tr>
-                <td><input class="input" name="image" type="file"></td>
-            </tr>
-        </tbody>
-    </table>
-    <!-- <button type="submit" name="post" class="button is-danger">Post</button> -->
-		<button type="submit" name="post-submit" value ="SEND" class="button is-danger">Post</button>
-    </form>
-<form action="camera.php" method="post" enctype="multipart/form-data">
-    <button type="submit" name="post" class="button is-danger">tempCamera</button>
-</form>
+    <br />
+            <div class="columns is-centered">
+            <div class="box" style="width:fit-content">
+            <div class="file is-danger">
+  <label class="file-label">
+    <input class="file-input" type="file" name="resume" id="photo">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+  </label>
+</div>
+</div>
+</div>
+    <div class="container has-text-centered">
+        <div class="box is-7 is-large has-background-grey-lighter" style="margin-top: 50px;">
+      
+
+                <video id="video" style="height:480px; width:640px;"></video>
+                <br />
+            	<button type="submit" name="take" class="button is-danger" id="capture" style="margin-bottom: 5px;">Take Photo</button>
+      <form action="functions/uploadImage.func.php" method="post" enctype="multipart/form-data">
+		          <button type="submit" name="post-submit" value ="" class="button is-danger" style="margin-bottom: 5px;" onclick="getImgSrc()" id="post" disabled>Post</button>
+      </form>
+                <div style="position:relative; height:480px;">
+                <canvas id="canvas" style="max-height:480px; max-width:640px; height:100%; width:100%;"></canvas>
+                <canvas id="canvas2" style="max-height:480px; max-width:640px; height:100%; width:100%; position:relative; top:-486px; left:0;"></canvas>
+                </div>
+        </div>
+    </div>
+    <div class="box has-background-grey-lighter">
+      <div class="container has-text-centered">
+        <label class="label">Choose A Sticker</label>
+
+		<img src="stickers/empty.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
+		<img src="stickers/bubbles-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
+		<img src="stickers/heart-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">	
+		<img src="stickers/roses-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
+		<img src="stickers/puppy-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">	
+		<img src="stickers/smoke-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
+		<img src="stickers/target-sticker.png" style="height:90px; width:90px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
+	  </div>
+    </div>
+    <script src="photo.js"></script>
 </div>
 </div>
 </div>
   </div>
 </div>
+</div>
 </main>
+
+<?php
+  require "footer.php";
+?>

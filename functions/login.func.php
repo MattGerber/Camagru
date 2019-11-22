@@ -19,8 +19,11 @@
 			
 			$data = $select->fetch();
 			// print_r($data);
-
-			if (empty($passwd)) {
+			if ($data['verified'] == 0){
+				header("location: ../index.php?error=accountnotverified&email=".$email);
+				exit();
+			}
+			else if (empty($passwd)) {
 				// print_r($_POST);
 				header("location: ../index.php?error=emptyfield&email=".$email);
 				exit();
@@ -29,7 +32,9 @@
 				$_SESSION['id'] = $data['id'];
 				$_SESSION['email'] = $data['email'];
 				$_SESSION['username'] = $data['username'];
+				$_SESSION['pic'] = $data['picturesource'];
 				$_SESSION['passwd'] = $data['password'];
+				$_SESSION['verified'] = $data['verified'];
 				header("location:../gallery.php");
 			}
 			else {

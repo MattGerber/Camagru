@@ -1,6 +1,10 @@
 <?php
 	include_once 'dbh.inc.php';
 	session_start();
+	// if (isset($_GET['error'])){
+	// 	echo "<script>alert('".$_GET['error']."')</script>";
+	// }
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,44 +30,24 @@
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <!-- <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="index.php">
-        Home
-      </a>
+      <a class="navbar-item" href="feed.php">
+        Feed
+      </a> -->
 
-      <a class="navbar-item">
-        Documentation
-      </a>
+      <!-- <a href="gallery.php" class="navbar-item">
+        Discover
+      </a> -->
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
 
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
-        </div>
-      </div>
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
       <form method="post" action="functions/login.func.php">
         <div class="level">
-				  <input class="input" type="email" name="email" placeholder="Email" style="margin-right: 5px">
+				  <input class="input" type="email" name="email" placeholder="Email" style="margin-right: 5px" <?php if(isset($_GET['mail'])){echo "value=".$_GET['mail'];} ?>>
 				  <input class="input" type="password" name="passwd" placeholder="Password" style="margin-right: 5px">
           <button class="button is-danger" type="submit" name="login-submit" style="margin-right: 5px">
             <strong>Login</strong>
