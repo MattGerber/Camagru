@@ -1,3 +1,4 @@
+var button = document.getElementById('post');
 var video = document.getElementById('video'),
     photo = document.getElementById('photo'),
     canvas = document.getElementById('canvas'),
@@ -5,6 +6,7 @@ var video = document.getElementById('video'),
     context2 = canvas2.getContext('2d'),
 	context= canvas.getContext('2d');
 var stickerselected = false;
+getSticker("stickers/empty.png");
 (function(){
         // vendorUrl = window.URL || window.webkitURL;
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
@@ -24,6 +26,7 @@ var stickerselected = false;
         canvas.width=400;
         canvas.height=300;
         context.drawImage(video, 0, 0, 640, 480, 0, 0, canvas.width, canvas.height);
+        button.removeAttribute('disabled');
     });
     
     
@@ -49,6 +52,7 @@ var stickerselected = false;
                 canvas.width=400;
                 canvas.height=300;
                 context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+                button.removeAttribute('disabled');
             }
             img.src = event.target.result;
         }
@@ -62,7 +66,6 @@ var stickerselected = false;
         var sticker = new Image();
         img.src = canvas.toDataURL();
         sticker.src = canvas2.toDataURL();
-		var button = document.getElementById('post');
 		if(stickerselected)
 			button.value=img.src+"#"+sticker.src;
 		else 
@@ -73,6 +76,7 @@ var stickerselected = false;
 
     function getSticker(src){
         // alert(src);
+        // console.log(src);
         var img = new Image();
         // document.getElementById('filter').setAttribute('src',src);
         img.src=src;
@@ -81,7 +85,7 @@ var stickerselected = false;
         canvas2.width=400;
         canvas2.height=300;
         context2.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas2.width, canvas2.height);
-            console.log(src);
+            // console.log(src);
 		}
 		stickerselected = true;
     }

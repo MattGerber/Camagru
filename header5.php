@@ -25,7 +25,7 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-
+<!-- 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="feed.php">
@@ -36,7 +36,7 @@
         Discover
       </a>
 
-    </div>
+    </div> -->
 
     <!-- <div class="navbar-end"> -->
       <!-- <div class="navbar-item"> -->

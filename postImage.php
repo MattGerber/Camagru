@@ -51,12 +51,11 @@
                 <br />
             	<button type="submit" name="take" class="button is-danger" id="capture" style="margin-bottom: 5px;">Take Photo</button>
       <form action="functions/uploadImage.func.php" method="post" enctype="multipart/form-data">
-		          <button type="submit" name="post-submit" value ="" class="button is-danger" style="margin-bottom: 5px;" onclick="getImgSrc()" id="post">Post</button>
+		          <button type="submit" name="post-submit" value ="" class="button is-danger" style="margin-bottom: 5px;" onclick="getImgSrc()" id="post" disabled>Post</button>
       </form>
-                <!-- <img id="filter"> -->
                 <div style="position:relative; height:480px;">
-                <canvas id="canvas" style="max-height:480px; max-width:640px; height:100%; width:75%;"></canvas>
-                <canvas id="canvas2" style="max-height:480px; max-width:640px; height:100%; width:75%; position:relative; top:-486px; left:0;"></canvas>
+                <canvas id="canvas" style="max-height:480px; max-width:640px; height:100%; width:100%;"></canvas>
+                <canvas id="canvas2" style="max-height:480px; max-width:640px; height:100%; width:100%; position:relative; top:-486px; left:0;"></canvas>
                 </div>
         </div>
     </div>
@@ -64,17 +63,13 @@
       <div class="container has-text-centered">
         <label class="label">Choose A Sticker</label>
 
-		<img src="stickers/bubbles-sticker.png" style="height:90px; width:90px; margin-right:10px;" id="sticker" onclick="getSticker(src)">
-	
-		<img src="stickers/heart-sticker.png" style="height:90px; width:90px; margin-right:10px;" id="sticker" onclick="getSticker(src)">
-		
-		<img src="stickers/roses-sticker.png" style="height:90px; width:90px; margin-right:10px;" id="sticker" onclick="getSticker(src)">
-
-		<img src="stickers/puppy-sticker.png" style="height:90px; width:90px; margin-right:10px;" id="sticker" onclick="getSticker(src)">
-	
-		<img src="stickers/smoke-sticker.png" style="height:90px; width:90px; margin-right:10px;" id="sticker" onclick="getSticker(src)">
-
-		<img src="stickers/target-sticker.png" style="height:90px; width:90px;" id="sticker" onclick="getSticker(src)">
+		<img src="stickers/empty.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
+		<img src="stickers/bubbles-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
+		<img src="stickers/heart-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">	
+		<img src="stickers/roses-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
+		<img src="stickers/puppy-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">	
+		<img src="stickers/smoke-sticker.png" style="height:90px; width:90px; margin-right:10px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
+		<img src="stickers/target-sticker.png" style="height:90px; width:90px; border:2px solid white; border-radius:10%;" id="sticker" onclick="getSticker(src)">
 	  </div>
     </div>
     <script src="photo.js"></script>

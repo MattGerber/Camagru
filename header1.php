@@ -30,15 +30,15 @@
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <!-- <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="feed.php">
         Feed
-      </a>
+      </a> -->
 
-      <a href="gallery.php" class="navbar-item">
+      <!-- <a href="gallery.php" class="navbar-item">
         Discover
-      </a>
+      </a> -->
 
 
     </div>
