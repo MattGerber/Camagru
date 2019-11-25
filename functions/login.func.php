@@ -21,6 +21,7 @@
 			// print_r($data);
 			if ($data['verified'] == 0){
 				header("location: ../index.php?error=accountnotverified&email=".$email);
+				echo $email;
 				exit();
 			}
 			else if (empty($passwd)) {
@@ -35,6 +36,7 @@
 				$_SESSION['pic'] = $data['picturesource'];
 				$_SESSION['passwd'] = $data['password'];
 				$_SESSION['verified'] = $data['verified'];
+				$_SESSION['token'] = $data['token'];
 				header("location:../gallery.php");
 			}
 			else {

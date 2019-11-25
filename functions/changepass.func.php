@@ -1,8 +1,8 @@
 <?php
 	session_start();
 	if (isset($_POST["change-submit"])){
-		$passwd = $_POST['newpass'];
-		$pwd_repeat = $_POST['confirmpass'];
+		$passwd = $_POST['passwd'];
+		$pwd_repeat = $_POST['re-passwd'];
 		$token = $_SESSION['token'];
 		try
 	    {
@@ -22,7 +22,10 @@
 				$update->bindParam(':passwd',hash('whirlpool', hash('whirlpool', $passwd)));
 				$update->bindParam(':token', $token);
 				$update->execute();
-				header("location:../index.php");
+				if (isset($_SESSION['id'])){
+					header("location:../gallery.php");
+				}else
+					header("location:../index.php");
 			}
 		}
 		catch(PDOException $e)

@@ -1,7 +1,9 @@
 <?php
   require "header2.php";
   session_start();
-  $_SESSION['token'] = $_GET['verify'];
+  if(!(isset($_SESSION['token']))){
+	  $_SESSION['token'] = $_GET['verify'];
+  }
 ?>
 <main class="hero is-fullheight has-background-dark">
   <div class="container has-text-centered">
@@ -22,7 +24,7 @@
         <div class="field">
 				<label class="label">Confirm Password</label>
   					<p class="control has-icons-left">
-    					<input class="input" name="passwd" type="password" placeholder="Re-enter Password">
+    					<input class="input" name="re-passwd" type="password" placeholder="Re-enter Password">
     					<span class="icon is-small is-left">
       						<i class="fas fa-lock"></i>
     					</span>
